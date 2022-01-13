@@ -1,12 +1,13 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
 {
     private const float MIN_VELOCITY_EPSILON = 0.2f;
-    
+
+    public static Action PlayerShoot;
+
     Touch touch;
 
     private PlayerMovement playerMovement;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
             if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
             {
                 playerMovement.DragRelease(touch.position);
+                Shoot();
             }
         }
         else
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
             if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
             {
                 playerMovement.DragRelease(Input.mousePosition);
+                Shoot();
             }
         }
 
@@ -83,5 +86,10 @@ public class PlayerController : MonoBehaviour
         {
             isOutOfBounds = true;
         }
+    }
+    
+    private void Shoot()
+    {
+        PlayerShoot.Invoke();
     }
 }

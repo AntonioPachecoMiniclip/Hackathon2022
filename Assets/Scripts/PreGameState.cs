@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PreGameState : GameState
 {
-    public override void Setup(GameStateMachine gameStateMachine, GameManager gameManager)
+    public override void Setup(GameStateMachine gameStateMachine)
     {
-        base.Setup(gameStateMachine, gameManager);
+        base.Setup(gameStateMachine);
         totalDuration = 0.1f;
     }
 
@@ -14,7 +14,7 @@ public class PreGameState : GameState
         Debug.Log("Preparing Game");
     }
 
-    protected override void OnTimeEnded()
+    protected override void TriggerEndState()
     {
         gameStateMachine.SetState<PlayerTurnState>();
     }

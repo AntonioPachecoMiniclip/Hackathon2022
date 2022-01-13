@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameStateMachine : MonoBehaviour
 {
-    [SerializeField]
-    private GameManager gameManager;
-    
     private GameState currentState;
     
     private List<GameState> gameStates = new List<GameState>();
@@ -24,7 +21,7 @@ public class GameStateMachine : MonoBehaviour
 
         for (int i = 0; i < gameStates.Count; i++)
         {
-            gameStates[i].Setup(this, gameManager);
+            gameStates[i].Setup(this);
         }
         
         SetState<PreGameState>();

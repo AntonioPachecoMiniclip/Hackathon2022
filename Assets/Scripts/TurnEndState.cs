@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class TurnEndState : GameState
 {
-    public override void Setup(GameStateMachine gameStateMachine, GameManager gameManager)
+    public override void Setup(GameStateMachine gameStateMachine)
     {
-        base.Setup(gameStateMachine, gameManager);
-        totalDuration = 5;
+        base.Setup(gameStateMachine);
+        totalDuration = 2;
     }
     
     public override void OnEnter()
@@ -14,7 +14,7 @@ public class TurnEndState : GameState
         Debug.Log("Player turn Ended");
     }
 
-    protected override void OnTimeEnded()
+    protected override void TriggerEndState()
     {
         gameStateMachine.SetState<PlayerTurnState>();
     }
