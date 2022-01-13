@@ -5,7 +5,7 @@ public class PreGameState : GameState
     public override void Setup(GameStateMachine gameStateMachine, GameManager gameManager)
     {
         base.Setup(gameStateMachine, gameManager);
-        totalDuration = 10;
+        totalDuration = 0.1f;
     }
 
     public override void OnEnter()
