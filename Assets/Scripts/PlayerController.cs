@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
 
     public static Action PlayerShoot;
 
+    public GameObject decal;
+    
     Touch touch;
-    public LineRenderer lr;
 
     private PlayerMovement playerMovement;
     
@@ -25,19 +26,19 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        lr = GetComponent<LineRenderer>();
     }
     
     public void StartTurn()
     {
         canMove = true;
+        decal.SetActive(true);
     }
     
     public void EndTurn()
     {
-        canMove = false;
-        lr.positionCount = 0;
-        lr.enabled = false;
+        playerMovement.Lr.positionCount = 0;
+        playerMovement.Lr.enabled = false;
+        decal.SetActive(false);
     }
 
     public void OnEndTrack() 
@@ -121,6 +122,8 @@ public class PlayerController : MonoBehaviour
     
     private void Shoot()
     {
+        canMove = false;
+        IsMoving = true;
         PlayerShoot.Invoke();
     }
 }

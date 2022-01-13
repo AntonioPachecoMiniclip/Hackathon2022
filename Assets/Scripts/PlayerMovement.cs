@@ -20,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
         set => rb = value;
     }
     
+    public LineRenderer Lr
+    {
+        get => lr;
+
+        set => lr = value;
+    }
+    
     private void Awake()
     { 
         rb = GetComponent<Rigidbody2D>();
