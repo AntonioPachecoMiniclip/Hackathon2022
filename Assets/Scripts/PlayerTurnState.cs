@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +14,9 @@ public class PlayerTurnState : GameState
 
     private void OnPlayerShoot()
     {
-        TriggerEndState();
+        GameManager.Instance.RunCallbackWhenAllPlayerStopMoving(TriggerEndState);
     }
-    
+
     public override void OnEnter()
     {
         base.OnEnter();

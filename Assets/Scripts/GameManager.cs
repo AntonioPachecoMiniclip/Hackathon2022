@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +11,10 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
     public CameraFollow Camera;
     [SerializeField]
     private GameResultsUI gameResultsUI;
-    
+
     public List<PlayerController> players;
     public List<PlayerController> FinishedPlayers;
-    
+
     public PlayerController CurrentPlayer => players[CurrentPlayerIndex];
 
     private void Start()
@@ -42,5 +44,31 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
                     FinishedPlayers.Add(players[i]);
             }
         }
+    }
+
+    private bool IsAnyPlayerMoving()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i].IsMoving)
+                return true;
+        }
+
+        return false;
+    }
+
+    public void RunCallbackWhenAllPlayerStopMoving(Action callback)
+    {
+        StartCoroutine(nameof(CheckIfAllPlayersStopped), callback);
+    }
+
+    private IEnumerator CheckIfAllPlayersStopped(Action callback)
+    {
+        while (IsAnyPlayerMoving())
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        callback();
     }
 }
