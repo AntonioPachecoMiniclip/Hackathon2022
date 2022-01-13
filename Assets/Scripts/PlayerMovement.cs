@@ -4,11 +4,19 @@ public class PlayerMovement : MonoBehaviour
 {
     public float power = 10f;
     public float maxDrag = 5f;
-    public Rigidbody2D rb;
-    public LineRenderer lr;
-
+    private Rigidbody2D rb;
+    private LineRenderer lr;
+    
     public Vector3 dragStartPos;
+    public Vector3 movementStartPosition;
+    
+    public Rigidbody2D Rb
+    {
+        get => rb;
 
+        set => rb = value;
+    }
+    
     private void Awake()
     { 
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public void DragStart(Vector3 touchPosition)
     {
         lr.enabled = true;
+
+        movementStartPosition = transform.position;
         dragStartPos = Camera.main.ScreenToWorldPoint(touchPosition);
         dragStartPos.z = 0f;
         

@@ -67,13 +67,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        isMoving = playerMovement.rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
+        isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
         
         if (isOutOfBounds && !isMoving)
         {
-            transform.position = playerMovement.dragStartPos;
+            transform.position = playerMovement.movementStartPosition;
             isOutOfBounds = false;
-            playerMovement.rb.velocity = Vector2.zero;
+            playerMovement.Rb.velocity = Vector2.zero;
         }
     }
 
@@ -82,6 +82,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
         {
             isOutOfBounds = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
+        {
+            isOutOfBounds = false;
         }
     }
 }
