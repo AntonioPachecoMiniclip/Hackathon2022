@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
 {
+    public LineRenderer lr;
     private const float MIN_VELOCITY_EPSILON = 0.2f;
     
     Touch touch;
@@ -19,6 +20,18 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
+    private bool canMove;
+    
+    public void StartTurn()
+    {
+        canMove = true;
+    }
+    
+    public void EndTurn()
+    {
+        canMove = false;
+    }
+    
     private void Update()
     {
         if (Input.touchCount > 0)
@@ -79,4 +92,5 @@ public class PlayerController : MonoBehaviour
         
     } 
     */
+}
 }

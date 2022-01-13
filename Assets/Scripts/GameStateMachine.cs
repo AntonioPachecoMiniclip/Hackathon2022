@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class GameStateMachine : MonoBehaviour
 {
-    [NonSerialized]
-    public int MaxPlayers = 4;
-    [NonSerialized]
-    public int currentPlayerIndex;
-    
-    public List<Player> players;
+    [SerializeField]
+    private GameManager gameManager;
     
     private GameState currentState;
     
@@ -28,7 +24,7 @@ public class GameStateMachine : MonoBehaviour
 
         for (int i = 0; i < gameStates.Count; i++)
         {
-            gameStates[i].Setup(this);
+            gameStates[i].Setup(this, gameManager);
         }
         
         SetState<PreGameState>();

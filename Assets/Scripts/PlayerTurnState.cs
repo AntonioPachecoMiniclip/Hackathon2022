@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class PlayerTurnState : GameState
 {
-    public override void Setup(GameStateMachine gameStateMachine)
+    public override void Setup(GameStateMachine gameStateMachine, GameManager gameManager)
     {
-        base.Setup(gameStateMachine);
+        base.Setup(gameStateMachine, gameManager);
         totalDuration = 20;
     }
     
     public override void OnEnter()
     {
+        base.OnEnter();
         StartPlayerTurn();
     }
 
@@ -21,12 +22,18 @@ public class PlayerTurnState : GameState
 
     private void StartPlayerTurn()
     {
-        //List<Player> players = gameStateMachine.players;
-        gameStateMachine.currentPlayerIndex++;
-        if (gameStateMachine.currentPlayerIndex >= gameStateMachine.MaxPlayers)
-            gameStateMachine.currentPlayerIndex = 0;
+        List<PlayerController> players = gameManager.players;
+        gameManager.currentPlayerIndex++;
+        if (gameManager.currentPlayerIndex >= players.Count)
+            gameManager.currentPlayerIndex = 0;
         
-        Debug.Log($"Player {gameStateMachine.currentPlayerIndex} Turn Start");
-        //players[gameStateMachine.currentPlayerIndex].StartTurn();
+        Debug.Log($"Player {gameManager.currentPlayerIndex} Turn Start");
+        players[gameManager.currentPlayerIndex].StartTurn();
+    }
+
+    public override void OnLeave()
+    {
+        base.OnLeave();
+        gameManager.players[gameManager.currentPlayerIndex].EndTurn();
     }
 }
