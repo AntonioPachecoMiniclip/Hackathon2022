@@ -13,6 +13,18 @@ public class PlayerController : MonoBehaviour
 
     Vector3 mouseStartPos;
 
+    private bool canMove;
+    
+    public void StartTurn()
+    {
+        canMove = true;
+    }
+    
+    public void EndTurn()
+    {
+        canMove = false;
+    }
+    
     private void Update() {
         if (Input.touchCount > 0) {
             touch = Input.GetTouch(0);
@@ -45,7 +57,7 @@ public class PlayerController : MonoBehaviour
         mouseStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseStartPos.z = 0f;
         
-        Debug.Log("DragStart");
+        //Debug.Log("DragStart");
         //lr.positionCount = 1;
         //lr.SetPosition(0, dragStartPos);
     }
@@ -54,7 +66,7 @@ public class PlayerController : MonoBehaviour
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         draggingPos.z = 0f;
 
-        Debug.Log("Dragging");
+        //Debug.Log("Dragging");
         //lr.positionCount = 2;
         //lr.SetPosition(1, draggingPos);
     }
@@ -69,14 +81,14 @@ public class PlayerController : MonoBehaviour
         //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
         rb.AddForce(force, ForceMode2D.Impulse);
-        Debug.Log("DragRelease");
+        //Debug.Log("DragRelease");
     }
 
     void DragStart() {
         dragStartPos = Camera.main.ScreenToWorldPoint(touch.position);
         dragStartPos.z = 0f;
         
-        Debug.Log("DragStart");
+        //Debug.Log("DragStart");
         //lr.positionCount = 1;
         //lr.SetPosition(0, dragStartPos);
     }
@@ -85,7 +97,7 @@ public class PlayerController : MonoBehaviour
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touch.position);
         draggingPos.z = 0f;
 
-        Debug.Log("Dragging");
+        //Debug.Log("Dragging");
         //lr.positionCount = 2;
         //lr.SetPosition(1, draggingPos);
     }
@@ -100,7 +112,7 @@ public class PlayerController : MonoBehaviour
         //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
         rb.AddForce(force, ForceMode2D.Impulse);
-        Debug.Log("DragRelease");
+        //Debug.Log("DragRelease");
     }
 
 
