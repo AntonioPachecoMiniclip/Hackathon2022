@@ -6,6 +6,7 @@ public class GameFinishState : GameState
     {
         base.OnEnter();
         Debug.Log("Game Finished");
+        GameManager.Instance.ShowGameResults();
     }
     
     public override void OnUpdate()

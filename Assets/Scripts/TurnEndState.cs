@@ -33,6 +33,6 @@ public class TurnEndState : GameState
                 playersThatFinished++;
         }
         
-        return playersThatFinished == players.Count;
+        return playersThatFinished == players.Count - 1;
     }
 }
