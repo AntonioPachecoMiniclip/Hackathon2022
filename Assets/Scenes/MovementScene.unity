@@ -622,6 +622,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carica
       objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Positions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427884712970964134, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats

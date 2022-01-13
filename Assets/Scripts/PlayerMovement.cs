@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         dragStartPos.z = capPosZ;
         
         lr.positionCount = 1;
-        lr.SetPosition(0, dragStartPos);
+        lr.SetPosition(0, movementStartPosition);
     }
 
     public void Dragging(Vector3 touchPosition)
@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         draggingPos.z = capPosZ;
 
         lr.positionCount = 2;
-        lr.SetPosition(1, draggingPos);
+        Vector3 newVector = Vector3.ClampMagnitude(dragStartPos - draggingPos, (maxDrag * 0.33f));
+        newVector.z = capPosZ;
+        lr.SetPosition(1, newVector + movementStartPosition);
     }
 
     public void DragRelease(Vector3 touchPosition)
