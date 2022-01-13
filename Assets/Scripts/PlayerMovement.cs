@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
 
         lr.positionCount = 2;
         Vector3 newVector = Vector3.ClampMagnitude(dragStartPos - draggingPos, (maxDrag * 0.33f));
-        newVector.z = capPosZ;
         lr.SetPosition(1, newVector + movementStartPosition);
     }
 
