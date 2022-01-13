@@ -6,21 +6,28 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField]
     Soundbank soundbank;
-    AudioSource source;
+    [SerializeField]
+    AudioSource[] sources;
+    int sourceIndex = 0;
 
     void Awake() {
-        source = GetComponent<AudioSource>();
+        sources = GetComponents<AudioSource>();
     }
 
     public void playCapSound(CapType type) {
         switch(type) {
             case CapType.Plastic:
-                source.clip = soundbank.playPlasticCap;
+                sources[sourceIndex].clip = soundbank.playPlasticCap;
                 break;
             case CapType.Metal:
-                source.clip = soundbank.playMetalCap;
+                sources[sourceIndex].clip = soundbank.playMetalCap;
                 break;
         }   
-        source.Play();
+        sources[sourceIndex].Play();
+        incrementSourceIndex();
+    }
+
+    void incrementSourceIndex() {
+        sourceIndex = (sourceIndex + 1) % sources.Length;
     }
 }
