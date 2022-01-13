@@ -70,4 +70,10 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(clampedForce, ForceMode2D.Impulse);
         lr.enabled = false;
     }
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if(col.otherCollider.tag == "Player") {
+            FindObjectOfType<SoundManager>().playCapSound(capStats.capType);
+        }
+    }
 }

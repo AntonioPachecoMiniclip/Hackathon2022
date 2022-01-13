@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CapType {
+    Plastic,
+    Metal
+}
+
 [CreateAssetMenu(fileName = "New CapStats", menuName = "CapStats")]
 public class CapStats : ScriptableObject
 {
@@ -12,4 +17,5 @@ public class CapStats : ScriptableObject
     public float maxDrag;
     public float power;
     public Material capMaterial;
+    public CapType capType;
 }
