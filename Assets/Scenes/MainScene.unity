@@ -277,6 +277,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carica (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: capStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c8add5ded3f5d430fba602ba6e306b00,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d994ce03f259c48f58fca380c73843a1, type: 3}
 --- !u!114 &453695483 stripped
@@ -667,6 +673,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carica (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: capStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c8add5ded3f5d430fba602ba6e306b00,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d994ce03f259c48f58fca380c73843a1, type: 3}
 --- !u!114 &793069947 stripped
@@ -825,6 +837,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carica (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: capStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 74a54e69bc5fa4eba99c72eccd133d88,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d994ce03f259c48f58fca380c73843a1, type: 3}
 --- !u!114 &1286190114 stripped
@@ -1132,6 +1150,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carica
       objectReference: {fileID: 0}
+    - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: capStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 74a54e69bc5fa4eba99c72eccd133d88,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d994ce03f259c48f58fca380c73843a1, type: 3}
 --- !u!114 &3453404077127480035 stripped
