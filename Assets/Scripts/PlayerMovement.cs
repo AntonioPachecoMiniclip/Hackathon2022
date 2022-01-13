@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public LineRenderer lr;
     public float power = 10f;
     public float maxDrag = 5f;
     public Rigidbody2D rb;
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void DragRelease(Vector3 touchPosition)
     {
+        lr.positionCount = 0;
+        
         Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touchPosition);
         dragReleasePos.z = 0f;
 

@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
 {
-    public LineRenderer lr;
     private const float MIN_VELOCITY_EPSILON = 0.2f;
     
     Touch touch;
@@ -15,12 +14,12 @@ public class PlayerController : MonoBehaviour
     private bool isMoving;
     private bool isOutOfBounds;
 
+    private bool canMove;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
     }
-
-    private bool canMove;
     
     public void StartTurn()
     {
@@ -69,8 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isMoving = playerMovement.rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
-        Debug.Log(playerMovement.rb.velocity);
-        Debug.Log(playerMovement.rb.velocity.magnitude);
+        
         if (isOutOfBounds && !isMoving)
         {
             transform.position = playerMovement.dragStartPos;
@@ -86,11 +84,4 @@ public class PlayerController : MonoBehaviour
             isOutOfBounds = true;
         }
     }
-
-    /*
-    public void Move (InputAction.CallbackContext context) {
-        
-    } 
-    */
-}
 }
