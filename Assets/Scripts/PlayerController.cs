@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     Vector3 dragStartPos;
     Touch touch;
 
+    Vector3 mouseStartPos;
+
     private void Update() {
         if (Input.touchCount > 0) {
             touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began) {
+            if (touch.phase == TouchPhase.Began || Input.GetMouseButtonDown(0)) {
                 DragStart();
             }
 
@@ -23,10 +25,51 @@ public class PlayerController : MonoBehaviour
                 Dragging();
             }
 
-            if (touch.phase == TouchPhase.Ended) {
+            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)) {
                 DragRelease();
             }
+        } else {
+            if (Input.GetMouseButtonDown(0)) {
+                MouseDragStart();
+            }
+
+            MouseDragging();
+
+            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)) {
+                MouseDragRelease();
+            }
         }
+    }
+
+    void MouseDragStart() {
+        mouseStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseStartPos.z = 0f;
+        
+        Debug.Log("DragStart");
+        //lr.positionCount = 1;
+        //lr.SetPosition(0, dragStartPos);
+    }
+
+    void MouseDragging() {
+        Vector3 draggingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        draggingPos.z = 0f;
+
+        Debug.Log("Dragging");
+        //lr.positionCount = 2;
+        //lr.SetPosition(1, draggingPos);
+    }
+
+    void MouseDragRelease() {
+        //lr.positionCount = 0;
+
+        Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        dragReleasePos.z = 0f;
+
+        Vector3 force = mouseStartPos - dragReleasePos;
+        //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
+
+        rb.AddForce(force, ForceMode2D.Impulse);
+        Debug.Log("DragRelease");
     }
 
     void DragStart() {

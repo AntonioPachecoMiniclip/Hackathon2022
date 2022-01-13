@@ -138,7 +138,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 232200845}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bb4d1ed847ed447f2a0abfdaa9c10ab5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -390,10 +390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2585284141151212382, guid: c79b1f31edba24d10907d1acc7b2d696,
+    - target: {fileID: 9144975297551148130, guid: c79b1f31edba24d10907d1acc7b2d696,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.3
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c79b1f31edba24d10907d1acc7b2d696, type: 3}
