@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4250569354906506005}
   - component: {fileID: 4250569354906506008}
   - component: {fileID: 4250569354906506009}
+  - component: {fileID: 7291429636415675313}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -124,3 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5797f368efb547bba6f3dff993f6686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7291429636415675313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250569354906506002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d3a23f3bf504167871163d4fdc9132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playMetalCap: {fileID: 8300000, guid: b3fdac5855b514ec0ba057744c2704bc, type: 3}
+  playPlasticCap: {fileID: 8300000, guid: b77121f6450d54fc9ba3c83d2e90fb74, type: 3}
+  cheering: {fileID: 8300000, guid: 319510f6b011b4346883c5599da407d3, type: 3}
