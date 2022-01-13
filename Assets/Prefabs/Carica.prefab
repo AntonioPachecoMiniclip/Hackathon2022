@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3453404077323888748}
   m_Layer: 0
   m_Name: Carica
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9cfda21cd634a3da3491305ce3f118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 10
-  maxDrag: 5
-  rb: {fileID: 3453404077323888754}
 --- !u!1001 &3453404078007985594
 PrefabInstance:
   m_ObjectHideFlags: 0
