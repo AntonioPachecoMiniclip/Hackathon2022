@@ -3,15 +3,13 @@ using UnityEngine;
 public abstract class GameState
 {
     protected GameStateMachine gameStateMachine;
-    protected GameManager gameManager;
     
     protected float totalDuration = 1;
     private float currentDuration;
     
-    public virtual void Setup(GameStateMachine gameStateMachine, GameManager gameManager)
+    public virtual void Setup(GameStateMachine gameStateMachine)
     {
         this.gameStateMachine = gameStateMachine;
-        this.gameManager = gameManager;
     }
 
     public virtual void OnEnter()
@@ -24,10 +22,10 @@ public abstract class GameState
         currentDuration += Time.deltaTime;
         
         if (currentDuration >= totalDuration)
-            OnTimeEnded();
+            TriggerEndState();
     }
 
-    protected abstract void OnTimeEnded();
+    protected abstract void TriggerEndState();
 
     public virtual void OnLeave() { }
 }
