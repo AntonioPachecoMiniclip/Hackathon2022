@@ -18,4 +18,10 @@ public class TurnEndState : GameState
     {
         gameStateMachine.SetState<PlayerTurnState>();
     }
+
+    public override void OnUpdate()
+    {
+        if (!GameManager.Instance.CurrentPlayer.IsMoving)
+            TriggerEndState();
+    }
 }

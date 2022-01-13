@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     public LineRenderer lr;
 
     private PlayerMovement playerMovement;
-
-    private bool isMoving;
+    
+    [HideInInspector]
+    public bool IsMoving;
+    
     private bool isOutOfBounds;
 
     private bool canMove;
@@ -38,11 +40,23 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        if (!canMove) 
+        if (canMove) 
         {
-            return;
+            CheckInput();
         }
 
+        IsMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
+        
+        if (isOutOfBounds && !IsMoving)
+        {
+            transform.position = playerMovement.movementStartPosition;
+            isOutOfBounds = false;
+            playerMovement.Rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void CheckInput()
+    {
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
@@ -77,15 +91,6 @@ public class PlayerController : MonoBehaviour
                 playerMovement.DragRelease(Input.mousePosition);
                 Shoot();
             }
-        }
-
-        isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
-        
-        if (isOutOfBounds && !isMoving)
-        {
-            transform.position = playerMovement.movementStartPosition;
-            isOutOfBounds = false;
-            playerMovement.Rb.velocity = Vector2.zero;
         }
     }
 

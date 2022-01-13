@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 {
-    public event Action PlayerShoot;  
-    
-    [NonSerialized]
-    public int currentPlayerIndex;
+    [HideInInspector]
+    public int CurrentPlayerIndex;
 
     public CameraFollow Camera;
     
     public List<PlayerController> players;
     
-    public PlayerController CurrentPlayer => players[currentPlayerIndex];
+    public PlayerController CurrentPlayer => players[CurrentPlayerIndex];
     
 }
