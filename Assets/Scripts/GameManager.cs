@@ -6,13 +6,11 @@ public class GameManager : MonoBehaviour
 {
     [NonSerialized]
     public int currentPlayerIndex;
+
+    public CameraFollow Camera;
     
     public List<PlayerController> players;
     
-    public GameObject currentPlayer;
+    public PlayerController CurrentPlayer => players[currentPlayerIndex];
     
-    private void Awake()
-    {
-        currentPlayer = GameObject.FindWithTag("Player");
-    }
 }

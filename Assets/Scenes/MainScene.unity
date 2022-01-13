@@ -367,6 +367,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b0b7f81983b41b593d1f21744da5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1414087687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4250569354906506005, guid: a5cd225288d6a4d4792356d7bd8282b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 194618422}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f925b6dd76fb04d3f9c5a27932ebda05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &892917263377165417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,6 +446,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 892917264784353945, guid: 84e44e7c23a03410a88aad12580b0704,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1414087687}
     - target: {fileID: 892917264784353945, guid: 84e44e7c23a03410a88aad12580b0704,
         type: 3}
       propertyPath: players.Array.data[0]
