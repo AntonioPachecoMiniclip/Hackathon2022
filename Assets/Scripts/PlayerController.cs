@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool isMoving;
     private bool isOutOfBounds;
 
+    private bool hasFinishedTrack = false;
+
     private bool canMove;
 
     private void Awake()
@@ -34,6 +36,11 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         lr.positionCount = 0;
         lr.enabled = false;
+    }
+
+    public void OnEndTrack() {
+        Debug.Log("Finished track! " + this.gameObject.name);
+        hasFinishedTrack = true;
     }
     
     private void Update()
