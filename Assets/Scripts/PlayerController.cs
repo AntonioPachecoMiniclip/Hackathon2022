@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public static Action PlayerShoot;
 
     Touch touch;
+    public LineRenderer lr;
 
     private PlayerMovement playerMovement;
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        lr = GetComponent<LineRenderer>();
     }
     
     public void StartTurn()
@@ -30,10 +32,17 @@ public class PlayerController : MonoBehaviour
     public void EndTurn()
     {
         canMove = false;
+        lr.positionCount = 0;
+        lr.enabled = false;
     }
     
     private void Update()
     {
+        if (!canMove) 
+        {
+            return;
+        }
+
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
