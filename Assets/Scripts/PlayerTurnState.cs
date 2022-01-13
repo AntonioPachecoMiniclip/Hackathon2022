@@ -28,6 +28,9 @@ public class PlayerTurnState : GameState
             gameManager.currentPlayerIndex = 0;
         
         Debug.Log($"Player {gameManager.currentPlayerIndex} Turn Start");
+        
+        PlayerController currentPlayer = players[gameManager.currentPlayerIndex];
+        gameManager.Camera.SetTarget(currentPlayer.gameObject);
         players[gameManager.currentPlayerIndex].StartTurn();
     }
 
