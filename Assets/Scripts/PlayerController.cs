@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float power = 10f;
     public float maxDrag = 5f;
     public Rigidbody2D rb;
+    public LineRenderer lr;
 
     Vector3 dragStartPos;
     Touch touch;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
         if (Input.touchCount > 0) {
             touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began || Input.GetMouseButtonDown(0)) {
+            if (touch.phase == TouchPhase.Began) {
                 DragStart();
             }
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
                 Dragging();
             }
 
-            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)) {
+            if (touch.phase == TouchPhase.Ended) {
                 DragRelease();
             }
         } else {
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
             MouseDragging();
 
-            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)) {
+            if (Input.GetMouseButtonUp(0)) {
                 MouseDragRelease();
             }
         }
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void DragRelease() {
-        //lr.positionCount = 0;
+        lr.positionCount = 0;
 
         Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touch.position);
         dragReleasePos.z = 0f;
@@ -111,14 +112,11 @@ public class PlayerController : MonoBehaviour
         Vector3 force = dragStartPos - dragReleasePos;
         //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
+        //Debug.
+
         rb.AddForce(force, ForceMode2D.Impulse);
         //Debug.Log("DragRelease");
     }
 
 
-    /*
-    public void Move (InputAction.CallbackContext context) {
-        
-    } 
-    */
 }
