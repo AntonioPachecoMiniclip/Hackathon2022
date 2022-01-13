@@ -17,12 +17,20 @@ public class SoundManager : MonoBehaviour
     public void playCapSound(CapType type) {
         switch(type) {
             case CapType.Plastic:
-                sources[sourceIndex].clip = soundbank.playPlasticCap;
+                playAudioClip(soundbank.playPlasticCap);
                 break;
             case CapType.Metal:
-                sources[sourceIndex].clip = soundbank.playMetalCap;
+                playAudioClip(soundbank.playMetalCap);
                 break;
-        }   
+        }
+    }
+
+    public void playCheer() {
+        playAudioClip(soundbank.cheering);
+    }
+
+    void playAudioClip(AudioClip clip) {
+        sources[sourceIndex].clip = clip;
         sources[sourceIndex].Play();
         incrementSourceIndex();
     }

@@ -69,12 +69,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
         rb.AddForce(clampedForce, ForceMode2D.Impulse);
+        playSound();
         lr.enabled = false;
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.otherCollider.tag == "Player") {
-            FindObjectOfType<SoundManager>().playCapSound(capStats.capType);
+            playSound();
         }
+    }
+
+    void playSound() {
+        FindObjectOfType<SoundManager>().playCapSound(capStats.capType);
     }
 }
