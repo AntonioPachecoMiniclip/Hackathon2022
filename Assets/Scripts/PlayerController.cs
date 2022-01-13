@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
         mouseStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseStartPos.z = 0f;
         
-        //Debug.Log("DragStart");
         //lr.positionCount = 1;
         //lr.SetPosition(0, dragStartPos);
     }
@@ -67,7 +66,6 @@ public class PlayerController : MonoBehaviour
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         draggingPos.z = 0f;
 
-        //Debug.Log("Dragging");
         //lr.positionCount = 2;
         //lr.SetPosition(1, draggingPos);
     }
@@ -82,25 +80,22 @@ public class PlayerController : MonoBehaviour
         //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
         rb.AddForce(force, ForceMode2D.Impulse);
-        //Debug.Log("DragRelease");
     }
 
     void DragStart() {
         dragStartPos = Camera.main.ScreenToWorldPoint(touch.position);
         dragStartPos.z = 0f;
         
-        //Debug.Log("DragStart");
-        //lr.positionCount = 1;
-        //lr.SetPosition(0, dragStartPos);
+        lr.positionCount = 1;
+        lr.SetPosition(0, dragStartPos);
     }
 
     void Dragging() {
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touch.position);
         draggingPos.z = 0f;
 
-        //Debug.Log("Dragging");
-        //lr.positionCount = 2;
-        //lr.SetPosition(1, draggingPos);
+        lr.positionCount = 2;
+        lr.SetPosition(1, draggingPos);
     }
 
     void DragRelease() {
@@ -110,12 +105,10 @@ public class PlayerController : MonoBehaviour
         dragReleasePos.z = 0f;
 
         Vector3 force = dragStartPos - dragReleasePos;
-        //Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
+        Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
-        //Debug.
 
-        rb.AddForce(force, ForceMode2D.Impulse);
-        //Debug.Log("DragRelease");
+        rb.AddForce(clampedForce, ForceMode2D.Impulse);
     }
 
 
