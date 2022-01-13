@@ -1,13 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnEndState : GameState
 {
-    public override void Setup(GameStateMachine gameStateMachine)
-    {
-        base.Setup(gameStateMachine);
-        totalDuration = 2;
-    }
-    
     public override void OnEnter()
     {
         base.OnEnter();
@@ -16,12 +11,28 @@ public class TurnEndState : GameState
 
     protected override void TriggerEndState()
     {
-        gameStateMachine.SetState<PlayerTurnState>();
+        if (CanGameFinish())
+            gameStateMachine.SetState<GameFinishState>();
+        else
+            gameStateMachine.SetState<PlayerTurnState>();
     }
 
     public override void OnUpdate()
     {
         if (!GameManager.Instance.CurrentPlayer.IsMoving)
             TriggerEndState();
+    }
+    
+    private bool CanGameFinish()
+    {
+        List<PlayerController> players = GameManager.Instance.players;
+        int playersThatFinished = 0;
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i].HasFinishedTrack)
+                playersThatFinished++;
+        }
+        
+        return playersThatFinished == players.Count;
     }
 }

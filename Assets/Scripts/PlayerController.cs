@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour
     public bool IsMoving;
     
     private bool isOutOfBounds;
-
-    private bool hasFinishedTrack = false;
-
     private bool canMove;
+    
+    private bool hasFinishedTrack;
+    public bool HasFinishedTrack => hasFinishedTrack;
 
     private void Awake()
     {
@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
         lr.enabled = false;
     }
 
-    public void OnEndTrack() {
-        Debug.Log("Finished track! " + this.gameObject.name);
+    public void OnEndTrack() 
+    {
+        Debug.Log("Finished track! " + gameObject.name);
         hasFinishedTrack = true;
     }
     
