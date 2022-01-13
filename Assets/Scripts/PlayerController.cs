@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began || Input.GetMouseButtonDown(0))
+            if (touch.phase == TouchPhase.Began)
             {
                 playerMovement.DragStart(touch.position);
             }
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 playerMovement.Dragging(touch.position);
             }
 
-            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
+            if (touch.phase == TouchPhase.Ended)
             {
                 playerMovement.DragRelease(touch.position);
                 Shoot();
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
             playerMovement.Dragging(Input.mousePosition);
 
-            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 playerMovement.DragRelease(Input.mousePosition);
                 Shoot();
