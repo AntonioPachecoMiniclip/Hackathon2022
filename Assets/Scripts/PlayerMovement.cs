@@ -6,9 +6,12 @@ public class PlayerMovement : MonoBehaviour
     public float maxDrag = 5f;
     private Rigidbody2D rb;
     private LineRenderer lr;
+    private float capPosZ;
     
     public Vector3 dragStartPos;
     public Vector3 movementStartPosition;
+
+    public CapStats capStats;
     
     public Rigidbody2D Rb
     {
@@ -22,6 +25,15 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
         lr.enabled = false;
+
+        capPosZ = transform.position.z;
+
+        rb.mass = capStats.mass;
+        rb.drag = capStats.linearDrag;
+        GetComponent<CircleCollider2D>().sharedMaterial = capStats.physicsMaterial;
+        maxDrag = capStats.maxDrag;
+        power = capStats.power;
+        transform.GetChild(0).gameObject.GetComponent<Renderer>().material = capStats.capMaterial;
     }
 
     public void DragStart(Vector3 touchPosition)
@@ -30,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         movementStartPosition = transform.position;
         dragStartPos = Camera.main.ScreenToWorldPoint(touchPosition);
-        dragStartPos.z = 0f;
+        dragStartPos.z = capPosZ;
         
         lr.positionCount = 1;
         lr.SetPosition(0, dragStartPos);
@@ -39,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     public void Dragging(Vector3 touchPosition)
     {
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touchPosition);
-        draggingPos.z = 0f;
+        draggingPos.z = capPosZ;
 
         lr.positionCount = 2;
         lr.SetPosition(1, draggingPos);
@@ -50,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         lr.positionCount = 0;
         
         Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touchPosition);
-        dragReleasePos.z = 0f;
+        dragReleasePos.z = capPosZ;
 
         Vector3 force = dragStartPos - dragReleasePos;
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
