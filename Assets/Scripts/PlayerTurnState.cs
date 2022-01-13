@@ -31,16 +31,16 @@ public class PlayerTurnState : GameState
     {
         GameManager gameManager = GameManager.Instance;
         List<PlayerController> players = gameManager.players;
-        gameManager.currentPlayerIndex++;
-        if (gameManager.currentPlayerIndex >= players.Count)
-            gameManager.currentPlayerIndex = 0;
+        gameManager.CurrentPlayerIndex++;
+        if (gameManager.CurrentPlayerIndex >= players.Count)
+            gameManager.CurrentPlayerIndex = 0;
         
-        Debug.Log($"Player {gameManager.currentPlayerIndex} Turn Start");
+        Debug.Log($"Player {gameManager.CurrentPlayerIndex} Turn Start");
         
-        PlayerController currentPlayer = players[gameManager.currentPlayerIndex];
+        PlayerController currentPlayer = players[gameManager.CurrentPlayerIndex];
         gameManager.Camera.SetTarget(currentPlayer.gameObject);
         
-        players[gameManager.currentPlayerIndex].StartTurn();
+        players[gameManager.CurrentPlayerIndex].StartTurn();
     }
 
     public override void OnLeave()

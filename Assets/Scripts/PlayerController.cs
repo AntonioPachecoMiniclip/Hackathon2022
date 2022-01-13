@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     public LineRenderer lr;
 
     private PlayerMovement playerMovement;
-
-    private bool isMoving;
+    
+    [HideInInspector]
+    public bool IsMoving;
+    
     private bool isOutOfBounds;
 
     private bool hasFinishedTrack = false;
@@ -45,11 +47,23 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        if (!canMove) 
+        if (canMove) 
         {
-            return;
+            CheckInput();
         }
 
+        IsMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
+        
+        if (isOutOfBounds && !IsMoving)
+        {
+            transform.position = playerMovement.movementStartPosition;
+            isOutOfBounds = false;
+            playerMovement.Rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void CheckInput()
+    {
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
@@ -85,15 +99,6 @@ public class PlayerController : MonoBehaviour
                 Shoot();
             }
         }
-
-        isMoving = playerMovement.rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
-        
-        if (isOutOfBounds && !isMoving)
-        {
-            transform.position = playerMovement.dragStartPos;
-            isOutOfBounds = false;
-            playerMovement.rb.velocity = Vector2.zero;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -103,6 +108,14 @@ public class PlayerController : MonoBehaviour
             isOutOfBounds = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
+        {
+            isOutOfBounds = false;
+        }
+	}
     
     private void Shoot()
     {
