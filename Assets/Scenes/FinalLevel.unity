@@ -125,6 +125,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &12820638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1383189736728416818, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851110033247336671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &194618422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,6 +312,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 74a54e69bc5fa4eba99c72eccd133d88,
         type: 2}
+    - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: medal
+      value: 
+      objectReference: {fileID: 1250008750}
     - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: timer
@@ -522,6 +539,18 @@ MonoBehaviour:
 --- !u!114 &551349926 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 551349926, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851110033247336671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &698741110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 870911932040653074, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
     type: 3}
   m_PrefabInstance: {fileID: 5851110033247336671}
   m_PrefabAsset: {fileID: 0}
@@ -825,6 +854,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
+      propertyPath: medal
+      value: 
+      objectReference: {fileID: 698741110}
+    - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 952226526}
@@ -1114,6 +1148,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c79b1f31edba24d10907d1acc7b2d696, type: 3}
+--- !u!114 &1250008750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711890816711151251, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851110033247336671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1257260911 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5851110034491981744, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
@@ -1205,6 +1251,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e227a322fe87542d58570a387241920c,
         type: 2}
+    - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: medal
+      value: 
+      objectReference: {fileID: 12820638}
     - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: timer
@@ -1306,6 +1357,18 @@ MonoBehaviour:
 --- !u!114 &1822859135 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5851110033991460768, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851110033247336671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1894031365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8696292134437837027, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
     type: 3}
   m_PrefabInstance: {fileID: 5851110033247336671}
   m_PrefabAsset: {fileID: 0}
@@ -1520,6 +1583,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1d1387bdfb2d846629375f4dd6399204,
         type: 2}
+    - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: medal
+      value: 
+      objectReference: {fileID: 1894031365}
     - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: timer
