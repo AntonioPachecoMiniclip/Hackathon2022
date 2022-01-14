@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Respawn()
     {
+        isOutOfBounds = false;
+        
         //respawnCloud?.Play();
         SoundManager.Instance.PlayRespawnSound();
         
@@ -100,7 +102,6 @@ public class PlayerController : MonoBehaviour
         
         ghost.transform.position = playerMovement.movementStartPosition;
         transform.position = playerMovement.movementStartPosition;
-        isOutOfBounds = false;
         playerMovement.Rb.velocity = Vector2.zero;
     }
 
