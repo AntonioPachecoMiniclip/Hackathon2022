@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         playerMovement.Lr.positionCount = 0;
         playerMovement.Lr.enabled = false;
         decal.SetActive(false);
+        canMove = false;
     }
 
     public void OnEndTrack() 
