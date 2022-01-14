@@ -31,7 +31,7 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
     
     public void PlayRespawnSound() 
     {
-        playAudioClip(soundbank.cheering);
+        playAudioClip(soundbank.puff);
     }
 
     void playAudioClip(AudioClip clip) {
