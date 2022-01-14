@@ -70,9 +70,11 @@ public class PlayerTimer : MonoBehaviour
     }
 
     public void OnEndedTrack() {
-        medal.enabled = true;
-        medal.overrideSprite = Resources.Load<Sprite>(medalSpriteNames[nextMedalSprite++]);
+        if(!medal.enabled) {
+            medal.enabled = true;
+            medal.overrideSprite = Resources.Load<Sprite>(medalSpriteNames[nextMedalSprite++]);
 
-        nextMedalSprite = nextMedalSprite % medalSpriteNames.Length;
+            nextMedalSprite = nextMedalSprite % medalSpriteNames.Length;
+        }
     }
 }
