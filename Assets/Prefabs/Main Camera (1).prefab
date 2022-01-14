@@ -71,7 +71,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.748504
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -658,12 +658,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Preview: 0
-  Offset: -0.005
-  Area: 1.69
-  Spread: 1.78
+  Offset: -0.073
+  Area: 0.83
+  Spread: 5.11
   Samples: 36
-  Radius: 1.169
+  Radius: 2
   UseDistortion: 1
-  CubicDistortion: 7.47
-  DistortionScale: 1.008
+  CubicDistortion: 2.63
+  DistortionScale: 1.728
   Shader: {fileID: 4800000, guid: cbeace583f2566a49bb4deeaa6131b50, type: 3}
