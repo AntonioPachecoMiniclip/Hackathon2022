@@ -15,12 +15,21 @@ public class PlayerController : MonoBehaviour
     Touch touch;
 
     private PlayerMovement playerMovement;
+    public PlayerMovement PlayerMovement => playerMovement;
+    
     private PlayerTimer playerTimer;
 
-    [HideInInspector]
-    public bool IsMoving;
+    private OutOfBoundsAnimation outOfBoundsAnimation;
+    
+    [SerializeField]
+    private MeshRenderer meshRenderer;
+
+    private bool isMoving;
+    public bool IsMoving => isMoving;
 
     private bool isOutOfBounds;
+    public bool IsOutOfBounds => isOutOfBounds;
+   
     private bool canMove;
 
     private bool zooming = false;
@@ -36,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerTimer = GetComponent<PlayerTimer>();
+        outOfBoundsAnimation = GetComponentInChildren<OutOfBoundsAnimation>();
     }
 
     public void StartTurn(float duration)
@@ -68,9 +78,10 @@ public class PlayerController : MonoBehaviour
             CheckInput();
         }
 
-        IsMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
 
-        if (isOutOfBounds && !IsMoving)
+        isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
+        
+        if (isOutOfBounds && !isMoving)
         {
             ghost.transform.position = playerMovement.movementStartPosition;
             transform.position = playerMovement.movementStartPosition;
@@ -153,7 +164,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
         {
-            isOutOfBounds = true;
+            if (!isOutOfBounds)
+            {
+                isOutOfBounds = true;
+                outOfBoundsAnimation.StartAnimation(this, meshRenderer);
+            }
         }
     }
 
@@ -168,7 +183,7 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         DisablePlayer();
-        IsMoving = true;
+        isMoving = true;
         PlayerShoot.Invoke();
     }
 

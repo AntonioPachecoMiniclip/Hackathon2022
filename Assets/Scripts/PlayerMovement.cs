@@ -41,7 +41,11 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<CircleCollider2D>().sharedMaterial = capStats.physicsMaterial;
         maxDrag = capStats.maxDrag;
         power = capStats.power;
-        transform.GetChild(0).gameObject.GetComponent<Renderer>().material = capStats.capMaterial;
+        Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = capStats.capMaterial;
+        }
     }
 
     public void DragStart(Vector3 touchPosition)
