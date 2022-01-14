@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
             CheckInput();
         }
 
-
         isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
         
         if (isOutOfBounds && !isMoving)
@@ -94,14 +93,15 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        respawnCloud?.Play();
+        isOutOfBounds = false;
+        
+        //respawnCloud?.Play();
         SoundManager.Instance.PlayRespawnSound();
         
         yield return new WaitForSeconds(1f);
         
         ghost.transform.position = playerMovement.movementStartPosition;
         transform.position = playerMovement.movementStartPosition;
-        isOutOfBounds = false;
         playerMovement.Rb.velocity = Vector2.zero;
     }
 
