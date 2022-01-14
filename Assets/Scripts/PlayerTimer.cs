@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +12,8 @@ public class PlayerTimer : MonoBehaviour
     [SerializeField]
     private Image medal;
 
+    private Animator animator;
+    
     static string[] medalSpriteNames = {"medal_1","medal_2","medal_3"};
     static int nextMedalSprite = 0;
 
@@ -20,8 +21,9 @@ public class PlayerTimer : MonoBehaviour
 
     private bool isTickPlaying;
     
-    private void Awake() 
+    private void Awake()
     {
+        animator = avatar.GetComponent<Animator>();
         avatar.rectTransform.localScale = Vector3.one * 0.7f;
         timer.fillAmount = 1.0f;
         isTickPlaying = false;
@@ -30,6 +32,7 @@ public class PlayerTimer : MonoBehaviour
 
     public void startTimer(float duration) 
     {
+        animator.enabled = true;
         avatar.rectTransform.localScale = Vector3.one;
         timerCoroutine = StartCoroutine(fillTimer(duration));
         SoundManager.Instance.playStartTimerSound();
@@ -40,6 +43,8 @@ public class PlayerTimer : MonoBehaviour
             StopCoroutine(timerCoroutine);
             timerCoroutine = null;
         }
+        animator.SetTrigger("TurnEnd");
+        animator.enabled = false;
         avatar.rectTransform.localScale = Vector3.one * 0.7f;
         timer.fillAmount = 1.0f;
         isTickPlaying = false;
@@ -59,6 +64,7 @@ public class PlayerTimer : MonoBehaviour
             if (duration - timePassed < TickTimeMinDuration && !isTickPlaying)
             {
                 SoundManager.Instance.playTickingSound();
+                animator.SetTrigger("OutOfTime");
                 isTickPlaying = true;
             }
 
