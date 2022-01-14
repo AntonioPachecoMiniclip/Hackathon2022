@@ -125,6 +125,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &12820638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1383189736728416818, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851110033247336671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &194618422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,18 +206,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cd225288d6a4d4792356d7bd8282b4, type: 3}
---- !u!114 &265805301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1383189736728416818, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 5851110033247336671}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &431705452 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 431705452, guid: d7c5085f35faf41ce8dd4ecf2c204bdb,
@@ -1235,7 +1235,7 @@ PrefabInstance:
         type: 3}
       propertyPath: medal
       value: 
-      objectReference: {fileID: 265805301}
+      objectReference: {fileID: 12820638}
     - target: {fileID: 8176501470703992212, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: timer

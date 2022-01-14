@@ -9,9 +9,9 @@ public class PlayerTimer : MonoBehaviour
     
     public Image avatar;
     public Image timer;
-    public Image timerBg;
 
-    public Image medal;
+    [SerializeField]
+    private Image medal;
 
     static string[] medalSpriteNames = {"medal_1","medal_2","medal_3"};
     static int nextMedalSprite = 0;
@@ -20,12 +20,16 @@ public class PlayerTimer : MonoBehaviour
 
     private bool isTickPlaying;
     
-    void Awake() {
-        endTimer();
+    private void Awake() 
+    {
+        avatar.rectTransform.localScale = Vector3.one * 0.7f;
+        timer.fillAmount = 1.0f;
+        isTickPlaying = false;
         medal.enabled = false;
     }
 
-    public void startTimer(float duration) {
+    public void startTimer(float duration) 
+    {
         avatar.rectTransform.localScale = Vector3.one;
         timerCoroutine = StartCoroutine(fillTimer(duration));
         SoundManager.Instance.playStartTimerSound();
