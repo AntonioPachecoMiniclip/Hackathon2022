@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
 {
-    private const float MIN_VELOCITY_EPSILON = 0.2f;
-    public static float RespawnWaitTime = 0.3f;
+    private const float MIN_VELOCITY_EPSILON = 0.3f;
+    public static float RespawnWaitTime = 0.1f;
 
     public static Action PlayerShoot;
 
@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public GameObject decal;
     public GameObject ghost;
     public GameObject collisionParticleSystemPrefab;
+    [SerializeField]
+    private GameObject puffPrefab;
     public Color playerColor;
 
     Touch touch;
@@ -23,10 +25,7 @@ public class PlayerController : MonoBehaviour
     
     private PlayerTimer playerTimer;
     private OutOfBoundsAnimation outOfBoundsAnimation;
-    
-    [SerializeField]
-    private ParticleSystem respawnCloud;
-    
+
     [SerializeField]
     private MeshRenderer meshRenderer;
     public MeshRenderer MeshRenderer => meshRenderer;
@@ -97,12 +96,16 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Respawn()
     {
         isOutOfBounds = false;
-        
-        //respawnCloud?.Play();
+
+        Vector3 capPosition = transform.position; 
+        Vector3 position = new Vector3(capPosition.x, capPosition.y, -8f);
+        GameObject puff = Instantiate(puffPrefab, position, Quaternion.identity);
+        puff.GetComponent<SpriteRenderer>().color = playerColor;
+        Destroy(puff.gameObject, 1f);
         SoundManager.Instance.PlayRespawnSound();
         
         yield return new WaitForSeconds(RespawnWaitTime);
-        
+
         ghost.transform.position = playerMovement.movementStartPosition;
         transform.position = playerMovement.movementStartPosition;
         playerMovement.Rb.velocity = Vector2.zero;
