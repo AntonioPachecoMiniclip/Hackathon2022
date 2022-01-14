@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private const float MIN_VELOCITY_EPSILON = 0.2f;
+    public static float RespawnWaitTime = 0.3f;
 
     public static Action PlayerShoot;
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
         //respawnCloud?.Play();
         SoundManager.Instance.PlayRespawnSound();
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(RespawnWaitTime);
         
         ghost.transform.position = playerMovement.movementStartPosition;
         transform.position = playerMovement.movementStartPosition;
