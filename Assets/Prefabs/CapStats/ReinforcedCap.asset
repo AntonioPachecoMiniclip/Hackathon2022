@@ -17,6 +17,6 @@ MonoBehaviour:
   physicsMaterial: {fileID: 6200000, guid: bb4d1ed847ed447f2a0abfdaa9c10ab5, type: 2}
   linearDrag: 4
   maxDrag: 5
-  power: 35
+  power: 18
   capMaterial: {fileID: 2100000, guid: 6b00b9139489e49dfa51e683140aa90a, type: 2}
   capType: 1
