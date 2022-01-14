@@ -38,8 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.Lr.positionCount = 0;
         playerMovement.Lr.enabled = false;
-        decal.SetActive(false);
-        canMove = false;
+        DisablePlayer();
     }
 
     public void OnEndTrack() 
@@ -123,8 +122,14 @@ public class PlayerController : MonoBehaviour
     
     private void Shoot()
     {
-        canMove = false;
+        DisablePlayer();
         IsMoving = true;
         PlayerShoot.Invoke();
+    }
+
+    private void DisablePlayer()
+    {
+        canMove = false;
+        decal.SetActive(false);
     }
 }
