@@ -8,4 +8,7 @@ public class Soundbank : MonoBehaviour
     public AudioClip playPlasticCap;
     public AudioClip cheering;
     public AudioClip puff;
+    public AudioClip ticking;
+    public AudioClip startTicking;
+    public AudioClip endTicking;
 }
