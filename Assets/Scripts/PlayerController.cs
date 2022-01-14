@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public static Action PlayerShoot;
 
+    public Sprite PlayerAvatar;
     public GameObject decal;
     
     Touch touch;
