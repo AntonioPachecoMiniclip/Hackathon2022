@@ -364,8 +364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -123.5, y: -9.999996}
+  m_SizeDelta: {x: 197.24, y: 124.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321327115
 MonoBehaviour:
@@ -410,7 +410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 321327116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 321327118}
+        m_TargetAssemblyTypeName: SoundOnInput, Assembly-CSharp
+        m_MethodName: soundOnCallback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &321327116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,10 +470,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 321327113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1083f1c5dc747f3a21fd3abb06b75b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f0f5ef8de0a84e129c5666d2a90a691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeColor: {r: 0.09927912, g: 0.9150943, b: 0.10455761, a: 0}
+  soundON: {fileID: 413652007}
 --- !u!1 &399294179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,8 +1064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 123.3, y: -10}
+  m_SizeDelta: {x: 197.24, y: 124.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1279039308
 MonoBehaviour:
@@ -1098,7 +1110,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1279039309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279039311}
+        m_TargetAssemblyTypeName: SoundOffInput, Assembly-CSharp
+        m_MethodName: soundOffCallback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1279039309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,10 +1170,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279039306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1083f1c5dc747f3a21fd3abb06b75b, type: 3}
+  m_Script: {fileID: 11500000, guid: ad0ff8c4ff51d4bf29e1fec69d06e004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeColor: {r: 0.9339623, g: 0.057271298, b: 0.057271298, a: 0}
+  soundOFF: {fileID: 104445338}
 --- !u!1 &1488232763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,15 +1353,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1534060276}
-        m_TargetAssemblyTypeName: ExitInput, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsInput, Assembly-CSharp
         m_MethodName: exitButtonCallback
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Settings
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1534060274
