@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Touch touch;
 
     private PlayerMovement playerMovement;
+    private PlayerTimer playerTimer;
     
     [HideInInspector]
     public bool IsMoving;
@@ -26,18 +27,21 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        playerTimer = GetComponent<PlayerTimer>();
     }
     
-    public void StartTurn()
+    public void StartTurn(float duration)
     {
         canMove = true;
         decal.SetActive(true);
+        playerTimer.startTimer(duration);
     }
     
     public void EndTurn()
     {
         playerMovement.Lr.positionCount = 0;
         playerMovement.Lr.enabled = false;
+        playerTimer.endTimer();
         DisablePlayer();
     }
 

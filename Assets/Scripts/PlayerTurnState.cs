@@ -43,7 +43,7 @@ public class PlayerTurnState : GameState
         Debug.Log($"Player {gameManager.CurrentPlayerIndex} Turn Start");
         
         gameManager.Camera.SetTarget(currentPlayer.gameObject);
-        currentPlayer.StartTurn();
+        currentPlayer.StartTurn(totalDuration);
     }
 
     private int GetNextPlayerIndex()
