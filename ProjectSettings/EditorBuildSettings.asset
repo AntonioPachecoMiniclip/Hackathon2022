@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TierSelector.unity
     guid: 6a1029698f75442a2a1636df11280ae2
+  - enabled: 1
+    path: Assets/Scenes/FinalLevel.unity
+    guid: 5674f9f4bf6ca4bad83f02e5e846147d
   m_configObjects: {}

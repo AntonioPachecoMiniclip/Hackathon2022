@@ -14,7 +14,7 @@ public class PlayerTurnState : GameState
 
     private void OnPlayerShoot()
     {
-        GameManager.Instance.RunCallbackWhenAllPlayerStopMoving(TriggerEndState);
+        GameManager.Instance.RunCallbackWhenAllPlayerStopMoving(() => TriggerEndState());
     }
 
     public override void OnEnter()
