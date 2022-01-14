@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 4250569354906506007, guid: a5cd225288d6a4d4792356d7bd8282b4,
         type: 3}
       propertyPath: orthographic size
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cd225288d6a4d4792356d7bd8282b4, type: 3}
@@ -2169,6 +2169,21 @@ PrefabInstance:
       propertyPath: players.Array.data[3]
       value: 
       objectReference: {fileID: 393704622}
+    - target: {fileID: 7225748074914846170, guid: 84e44e7c23a03410a88aad12580b0704,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225748074914846170, guid: 84e44e7c23a03410a88aad12580b0704,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225748074914846170, guid: 84e44e7c23a03410a88aad12580b0704,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0648b2f7abdbb4130b35712ddedc59f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e44e7c23a03410a88aad12580b0704, type: 3}
 --- !u!1001 &1772038235
