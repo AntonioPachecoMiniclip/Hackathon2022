@@ -26,4 +26,8 @@ public class SceneManager : MonoBehaviour
     public static void loadSettings() {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Settings");
     }
+
+    public static void loadTierSelector() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("TierSelector");
+    }
 }

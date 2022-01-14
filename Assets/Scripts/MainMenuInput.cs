@@ -9,7 +9,7 @@ public class MainMenuInput : MonoBehaviour
     
     public void playButtonCallback()
     {
-        SceneManager.loadGame();
+        SceneManager.loadTierSelector();
     }
     
     public void settingsCallback()
