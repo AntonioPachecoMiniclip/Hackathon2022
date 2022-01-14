@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject decal;
     public GameObject ghost;
     public GameObject collisionParticleSystemPrefab;
+    public Color playerColor;
 
     Touch touch;
 
@@ -183,9 +184,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        ParticleSystem ps = Instantiate(collisionParticleSystemPrefab, other.GetContact(0).point, Quaternion.identity).GetComponent<ParticleSystem>();
-        ps.Play();
-        Destroy(ps.gameObject, ps.main.duration + 0.1f);
+        if (!IsMoving)
+            return;
+        
+        GameObject ps = Instantiate(collisionParticleSystemPrefab, other.GetContact(0).point, Quaternion.identity);
+        ps.GetComponent<SpriteRenderer>().color = playerColor;
+        Destroy(ps.gameObject, 0.5f);
     }
 
     private void Shoot()

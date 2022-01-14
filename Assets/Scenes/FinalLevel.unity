@@ -224,6 +224,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: cb50c66577cb744b8b69a75cba3b5dd5,
         type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: respawnCloud
+      value: 
+      objectReference: {fileID: 1080891225326639546, guid: 88d9197fb418243188e8a6b83b4cff50,
+        type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.b
+      value: 0.23137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -693,6 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2765d458f9ca4d299ba34b548cb4620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishParticleSystem: {fileID: 5008215465502922634, guid: 88d9197fb418243188e8a6b83b4cff50,
+    type: 3}
 --- !u!251 &727103893
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -751,6 +779,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6c543c17ff6d14576b20c780953e49c9,
         type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: respawnCloud
+      value: 
+      objectReference: {fileID: 1080891225326639546, guid: 88d9197fb418243188e8a6b83b4cff50,
+        type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.b
+      value: 0.23137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.g
+      value: 0.3882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.r
+      value: 0.27058825
+      objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1128,6 +1182,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 178ba02bc88d14e018ff4e2be182f6a7,
         type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: respawnCloud
+      value: 
+      objectReference: {fileID: 1080891225326639546, guid: 88d9197fb418243188e8a6b83b4cff50,
+        type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.g
+      value: 0.3882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1438,6 +1518,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0b6a9bd26e44844258815fea481e14b8,
         type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: respawnCloud
+      value: 
+      objectReference: {fileID: 1080891225326639546, guid: 88d9197fb418243188e8a6b83b4cff50,
+        type: 3}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: playerColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
