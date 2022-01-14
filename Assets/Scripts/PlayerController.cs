@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        respawnCloud?.Play();
+        //respawnCloud?.Play();
         SoundManager.Instance.PlayRespawnSound();
         
         yield return new WaitForSeconds(1f);
