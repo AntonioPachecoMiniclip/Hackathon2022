@@ -185,6 +185,9 @@ MonoBehaviour:
   ghost: {fileID: 2537605341901453133}
   collisionParticleSystemPrefab: {fileID: 6296143290628225395, guid: e1f21617227c249108855d057c657715,
     type: 3}
+  puffPrefab: {fileID: 6296143290628225395, guid: 1c6138b0f27cf46829dd7eb2de344090,
+    type: 3}
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
   respawnCloud: {fileID: 0}
   meshRenderer: {fileID: 5230523974411464408}
 --- !u!120 &4427884712970964134
@@ -341,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   timer: {fileID: 0}
-  timerBg: {fileID: 0}
+  medal: {fileID: 0}
 --- !u!1 &4199453926476649473
 GameObject:
   m_ObjectHideFlags: 0
