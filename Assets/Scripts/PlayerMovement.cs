@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float power = 10f;
     public float maxDrag = 5f;
+    public float minForce = 1f;
     private Rigidbody2D rb;
     private LineRenderer lr;
     private float capPosZ;
@@ -61,12 +62,13 @@ public class PlayerMovement : MonoBehaviour
         draggingPos.z = capPosZ;
 
         lr.positionCount = 2;
-        Vector3 newVector = Vector3.ClampMagnitude(dragStartPos - draggingPos, (maxDrag * 0.33f));
-        lr.SetPosition(1, newVector + movementStartPosition);
+        Vector3 newVector = Vector3.ClampMagnitude((dragStartPos - draggingPos), maxDrag);
+        lr.SetPosition(1, (newVector * 0.33f) + movementStartPosition);
     }
 
-    public void DragRelease(Vector3 touchPosition)
+    public bool DragRelease(Vector3 touchPosition)
     {
+        bool shot = false;
         lr.positionCount = 0;
         
         Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touchPosition);
@@ -75,8 +77,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 force = dragStartPos - dragReleasePos;
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
-        rb.AddForce(clampedForce, ForceMode2D.Impulse);
-        playSound();
+        if(clampedForce.magnitude >= minForce) {
+            rb.AddForce(clampedForce, ForceMode2D.Impulse);
+            playSound();
+            shot = true;
+        }
+        
+        DragReset();
+        return shot;
+    }
+
+    public void DragReset() {
+        dragStartPos = Vector3.zero;
         lr.enabled = false;
     }
 
