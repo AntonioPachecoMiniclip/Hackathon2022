@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
@@ -19,8 +20,10 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement PlayerMovement => playerMovement;
     
     private PlayerTimer playerTimer;
-
     private OutOfBoundsAnimation outOfBoundsAnimation;
+    
+    [SerializeField]
+    private ParticleSystem respawnCloud;
     
     [SerializeField]
     private MeshRenderer meshRenderer;
@@ -80,16 +83,26 @@ public class PlayerController : MonoBehaviour
             CheckInput();
         }
 
-
         isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
         
         if (isOutOfBounds && !isMoving)
         {
-            ghost.transform.position = playerMovement.movementStartPosition;
-            transform.position = playerMovement.movementStartPosition;
-            isOutOfBounds = false;
-            playerMovement.Rb.velocity = Vector2.zero;
+            StartCoroutine(nameof(Respawn));
         }
+    }
+
+    private IEnumerator Respawn()
+    {
+        isOutOfBounds = false;
+        
+        //respawnCloud?.Play();
+        SoundManager.Instance.PlayRespawnSound();
+        
+        yield return new WaitForSeconds(1f);
+        
+        ghost.transform.position = playerMovement.movementStartPosition;
+        transform.position = playerMovement.movementStartPosition;
+        playerMovement.Rb.velocity = Vector2.zero;
     }
 
     private void CheckInput()

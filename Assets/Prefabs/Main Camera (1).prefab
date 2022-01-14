@@ -146,6 +146,7 @@ MonoBehaviour:
   playMetalCap: {fileID: 8300000, guid: b3fdac5855b514ec0ba057744c2704bc, type: 3}
   playPlasticCap: {fileID: 8300000, guid: b77121f6450d54fc9ba3c83d2e90fb74, type: 3}
   cheering: {fileID: 8300000, guid: 319510f6b011b4346883c5599da407d3, type: 3}
+  puff: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
 --- !u!114 &2012478036
 MonoBehaviour:
   m_ObjectHideFlags: 0
