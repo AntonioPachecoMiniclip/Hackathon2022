@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Finished track! " + gameObject.name);
         hasFinishedTrack = true;
+        playerTimer.OnEndedTrack();
         GameManager.Instance.SetPlayerFinished(this);
     }
 

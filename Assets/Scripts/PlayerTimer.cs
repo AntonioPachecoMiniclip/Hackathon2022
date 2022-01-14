@@ -11,13 +11,14 @@ public class PlayerTimer : MonoBehaviour
 
     public Image medal;
 
-    static string[] medalSpriteNames = {"medal_1","medal_2","medal_3","medal_4"};
+    static string[] medalSpriteNames = {"medal_1","medal_2","medal_3"};
     static int nextMedalSprite = 0;
 
     Coroutine timerCoroutine;
 
     void Awake() {
         endTimer();
+        medal.enabled = false;
     }
 
     public void startTimer(float duration) {
