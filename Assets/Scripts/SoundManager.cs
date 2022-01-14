@@ -31,13 +31,59 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
     
     public void PlayRespawnSound() 
     {
-        playAudioClip(soundbank.cheering);
+        playAudioClip(soundbank.puff);
     }
 
-    void playAudioClip(AudioClip clip) {
+    public void playTickingSound() 
+    {
+        playAudioClip(soundbank.ticking, true);
+    }
+    
+    public void StopTickingSound() 
+    {
+        StopAudioClip(soundbank.ticking);
+    }
+    
+    public void playStartTimerSound() 
+    {
+        playAudioClip(soundbank.startTicking);
+    }
+
+    public void playEndTimerSound() 
+    {
+        playAudioClip(soundbank.endTicking);
+    }
+
+    public void playCanHittingSound() 
+    {
+        playAudioClip(soundbank.canHitting);
+    }
+
+    private void playAudioClip(AudioClip clip, bool loop = false)
+    {
+        Debug.Log("ole");
+        sources[sourceIndex].loop = loop;
         sources[sourceIndex].clip = clip;
         sources[sourceIndex].Play();
         incrementSourceIndex();
+    }
+    
+    private void StopAudioClip(AudioClip clip)
+    {
+        AudioSource audioSource = GetSourceWithClip(clip);
+        if (audioSource != null)
+            audioSource.Stop();
+    }
+
+    private AudioSource GetSourceWithClip(AudioClip clip)
+    {
+        for (int i = 0; i < sources.Length; i++)
+        {
+            if (sources[i].clip == clip)
+                return sources[i];
+        }
+
+        return null;
     }
 
     void incrementSourceIndex() {

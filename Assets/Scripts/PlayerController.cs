@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private const float MIN_VELOCITY_EPSILON = 0.2f;
+    public static float RespawnWaitTime = 0.3f;
 
     public static Action PlayerShoot;
 
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Finished track! " + gameObject.name);
         hasFinishedTrack = true;
+        playerTimer.OnEndedTrack();
         GameManager.Instance.SetPlayerFinished(this);
     }
 
@@ -94,14 +96,15 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        respawnCloud?.Play();
+        isOutOfBounds = false;
+        
+        //respawnCloud?.Play();
         SoundManager.Instance.PlayRespawnSound();
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(RespawnWaitTime);
         
         ghost.transform.position = playerMovement.movementStartPosition;
         transform.position = playerMovement.movementStartPosition;
-        isOutOfBounds = false;
         playerMovement.Rb.velocity = Vector2.zero;
     }
 
@@ -121,11 +124,14 @@ public class PlayerController : MonoBehaviour
         {
             zooming = false;
 
-            if (Input.GetMouseButtonDown(0)) {
-                playerMovement.DragStart(Input.mousePosition);
-            }
-            playerMovement.Dragging(Input.mousePosition);
-            if (Input.GetMouseButtonUp(0)) {
+            if (Input.GetMouseButtonDown(0))
+                playerMovement.DragStart(Input.mousePosition);            
+
+            if (Input.GetMouseButton(0))
+                playerMovement.Dragging(Input.mousePosition);
+            
+            if (Input.GetMouseButtonUp(0)) 
+            {
                 playerMovement.DragRelease(Input.mousePosition);
                 Shoot();
             }

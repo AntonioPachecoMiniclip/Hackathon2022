@@ -23,4 +23,9 @@ public class MainMenuInput : MonoBehaviour
     {
         SceneManager.loadCredits(canvas);
     }
+
+    public void inventoryCallback()
+    {
+        SceneManager.loadInventory(canvas);
+    }
 }

@@ -1,12 +1,17 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnEndState : GameState
 {
+    private bool alreadyEnded;
+    
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("Player turn Ended");
+        alreadyEnded = false;
     }
 
     protected override void TriggerEndState()
@@ -19,10 +24,17 @@ public class TurnEndState : GameState
 
     public override void OnUpdate()
     {
-        if (!GameManager.Instance.CurrentPlayer.IsMoving)
-            TriggerEndState();
+        if (!GameManager.Instance.CurrentPlayer.IsMoving && !alreadyEnded)
+            gameStateMachine.StartCoroutine(DelayTriggerEndState());
     }
-    
+
+    private IEnumerator DelayTriggerEndState()
+    {
+        alreadyEnded = true;
+        yield return new WaitForSeconds(PlayerController.RespawnWaitTime);
+        TriggerEndState();
+    }
+
     private bool CanGameFinish()
     {
         List<PlayerController> players = GameManager.Instance.players;
