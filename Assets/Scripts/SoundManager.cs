@@ -28,6 +28,11 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
     public void playCheer() {
         playAudioClip(soundbank.cheering);
     }
+    
+    public void PlayRespawnSound() 
+    {
+        playAudioClip(soundbank.cheering);
+    }
 
     void playAudioClip(AudioClip clip) {
         sources[sourceIndex].clip = clip;
