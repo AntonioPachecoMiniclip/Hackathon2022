@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Sprite PlayerAvatar;
     public GameObject decal;
     public GameObject ghost;
+    public GameObject collisionParticleSystemPrefab;
 
     Touch touch;
 
@@ -168,12 +169,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
-        {
-            isOutOfBounds = false;
-        }
+        ParticleSystem ps = Instantiate(collisionParticleSystemPrefab, other.GetContact(0).point, Quaternion.identity).GetComponent<ParticleSystem>();
+        ps.Play();
+        Destroy(ps.gameObject, ps.main.duration + 0.1f);
     }
 
     private void Shoot()

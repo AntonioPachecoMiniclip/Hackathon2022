@@ -183,6 +183,8 @@ MonoBehaviour:
   PlayerAvatar: {fileID: 0}
   decal: {fileID: 5871248768137128231}
   ghost: {fileID: 2537605341901453133}
+  collisionParticleSystemPrefab: {fileID: 5232838883756727904, guid: bf52e160405a9410b8d1ffe1856542d2,
+    type: 3}
   meshRenderer: {fileID: 5230523974411464408}
 --- !u!120 &4427884712970964134
 LineRenderer:
