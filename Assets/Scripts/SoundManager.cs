@@ -54,8 +54,14 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
         playAudioClip(soundbank.endTicking);
     }
 
+    public void playCanHittingSound() 
+    {
+        playAudioClip(soundbank.canHitting);
+    }
+
     private void playAudioClip(AudioClip clip, bool loop = false)
     {
+        Debug.Log("ole");
         sources[sourceIndex].loop = loop;
         sources[sourceIndex].clip = clip;
         sources[sourceIndex].Play();

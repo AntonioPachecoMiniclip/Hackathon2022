@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(clampedForce.magnitude >= minForce) {
             rb.AddForce(clampedForce, ForceMode2D.Impulse);
-            playSound();
+            playCapSound();
             shot = true;
         }
         
@@ -99,12 +99,21 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.otherCollider.tag == "Player") {
-            playSound();
+            playCapSound();
         }
+        else if(col.otherCollider.tag == "CanMovableObject") {
+            playCanHittingSound();
+        }
+        
     }
 
-    void playSound() 
+    void playCapSound() 
     {
         SoundManager.Instance.playCapSound(capStats.capType);
+    }
+
+    void playCanHittingSound() 
+    {
+        SoundManager.Instance.playCanHittingSound();
     }
 }

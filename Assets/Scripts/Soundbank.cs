@@ -11,4 +11,5 @@ public class Soundbank : MonoBehaviour
     public AudioClip ticking;
     public AudioClip startTicking;
     public AudioClip endTicking;
+    public AudioClip canHitting;
 }
