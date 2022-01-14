@@ -211,6 +211,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: PlayerAvatar
+      value: 
+      objectReference: {fileID: 21300000, guid: cb50c66577cb744b8b69a75cba3b5dd5,
+        type: 3}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -229,12 +235,12 @@ PrefabInstance:
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.21
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.05
+      value: -9.13
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
@@ -279,8 +285,13 @@ PrefabInstance:
     - target: {fileID: 3453404077323888751, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_Name
-      value: Carica (3)
+      value: C'EST_SAR
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9523f9e567f374fe3b70cbafe285b4ce, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats
@@ -350,6 +361,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1414087688}
+    - target: {fileID: 1521761441745955174, guid: 08aaf97fb421746bda5ed4dab1ae367b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822527209430875129, guid: 08aaf97fb421746bda5ed4dab1ae367b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7097698328617922172, guid: 08aaf97fb421746bda5ed4dab1ae367b,
         type: 3}
       propertyPath: m_Name
@@ -675,6 +696,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: PlayerAvatar
+      value: 
+      objectReference: {fileID: 21300000, guid: 6c543c17ff6d14576b20c780953e49c9,
+        type: 3}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -683,12 +710,12 @@ PrefabInstance:
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.733
+      value: -0.6229999
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.05
+      value: -9.13
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
@@ -733,8 +760,13 @@ PrefabInstance:
     - target: {fileID: 3453404077323888751, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_Name
-      value: Carica (2)
+      value: SUS_ANA
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a117e75f38774944b8d72f85c107df4, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats
@@ -959,6 +991,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: PlayerAvatar
+      value: 
+      objectReference: {fileID: 21300000, guid: 178ba02bc88d14e018ff4e2be182f6a7,
+        type: 3}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -967,12 +1005,12 @@ PrefabInstance:
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.787
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.05
+      value: -9.110001
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
@@ -1017,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 3453404077323888751, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_Name
-      value: Carica (1)
+      value: ROSE
       objectReference: {fileID: 0}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
@@ -1228,22 +1266,22 @@ PrefabInstance:
         type: 3}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 3453404077127480035}
+      objectReference: {fileID: 453695483}
     - target: {fileID: 892917264784353945, guid: 84e44e7c23a03410a88aad12580b0704,
         type: 3}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 1286190114}
+      objectReference: {fileID: 3453404077127480035}
     - target: {fileID: 892917264784353945, guid: 84e44e7c23a03410a88aad12580b0704,
         type: 3}
       propertyPath: players.Array.data[2]
       value: 
-      objectReference: {fileID: 793069947}
+      objectReference: {fileID: 1286190114}
     - target: {fileID: 892917264784353945, guid: 84e44e7c23a03410a88aad12580b0704,
         type: 3}
       propertyPath: players.Array.data[3]
       value: 
-      objectReference: {fileID: 453695483}
+      objectReference: {fileID: 793069947}
     - target: {fileID: 7225748074914846170, guid: 84e44e7c23a03410a88aad12580b0704,
         type: 3}
       propertyPath: m_audioClip
@@ -1258,6 +1296,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3453404077323888748, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: PlayerAvatar
+      value: 
+      objectReference: {fileID: 21300000, guid: 0b6a9bd26e44844258815fea481e14b8,
+        type: 3}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1266,12 +1310,12 @@ PrefabInstance:
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.11
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.05
+      value: -9.13
       objectReference: {fileID: 0}
     - target: {fileID: 3453404077323888749, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
@@ -1316,8 +1360,13 @@ PrefabInstance:
     - target: {fileID: 3453404077323888751, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: m_Name
-      value: Carica
+      value: A_ROZ
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a6bd93ea63e747f69e4b621119de7e3, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats

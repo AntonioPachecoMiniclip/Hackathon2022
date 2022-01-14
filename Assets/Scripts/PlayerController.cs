@@ -8,20 +8,23 @@ public class PlayerController : MonoBehaviour
 
     public static Action PlayerShoot;
 
+    public Sprite PlayerAvatar;
     public GameObject decal;
-    
+    public GameObject ghost;
+
     Touch touch;
 
     private PlayerMovement playerMovement;
     private PlayerTimer playerTimer;
-    
+
     [HideInInspector]
     public bool IsMoving;
-    
+
     private bool isOutOfBounds;
     private bool canMove;
-    
+
     private bool hasFinishedTrack;
+
     public bool HasFinishedTrack => hasFinishedTrack;
 
     private void Awake()
@@ -29,14 +32,15 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerTimer = GetComponent<PlayerTimer>();
     }
-    
+
     public void StartTurn(float duration)
     {
+        ghost.SetActive(false);
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
     }
-    
+
     public void EndTurn()
     {
         playerMovement.Lr.positionCount = 0;
@@ -45,24 +49,25 @@ public class PlayerController : MonoBehaviour
         DisablePlayer();
     }
 
-    public void OnEndTrack() 
+    public void OnEndTrack()
     {
         Debug.Log("Finished track! " + gameObject.name);
         hasFinishedTrack = true;
         GameManager.Instance.SetPlayerFinished(this);
     }
-    
+
     private void Update()
     {
-        if (canMove) 
+        if (canMove)
         {
             CheckInput();
         }
 
         IsMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
-        
+
         if (isOutOfBounds && !IsMoving)
         {
+            ghost.transform.position = playerMovement.movementStartPosition;
             transform.position = playerMovement.movementStartPosition;
             isOutOfBounds = false;
             playerMovement.Rb.velocity = Vector2.zero;
@@ -122,8 +127,8 @@ public class PlayerController : MonoBehaviour
         {
             isOutOfBounds = false;
         }
-	}
-    
+    }
+
     private void Shoot()
     {
         DisablePlayer();
@@ -135,5 +140,12 @@ public class PlayerController : MonoBehaviour
     {
         canMove = false;
         decal.SetActive(false);
+    }
+
+    private void LateUpdate()
+    {
+        ghost.SetActive(transform.position != playerMovement.movementStartPosition);
+
+        ghost.transform.position = playerMovement.movementStartPosition;
     }
 }
