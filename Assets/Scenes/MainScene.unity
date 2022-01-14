@@ -1244,6 +1244,11 @@ PrefabInstance:
       propertyPath: players.Array.data[3]
       value: 
       objectReference: {fileID: 453695483}
+    - target: {fileID: 7225748074914846170, guid: 84e44e7c23a03410a88aad12580b0704,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0648b2f7abdbb4130b35712ddedc59f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e44e7c23a03410a88aad12580b0704, type: 3}
 --- !u!1001 &3453404077127480034
