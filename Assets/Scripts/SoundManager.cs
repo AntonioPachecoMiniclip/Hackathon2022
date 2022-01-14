@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
 {
     [SerializeField]
     Soundbank soundbank;
@@ -26,6 +26,11 @@ public class SoundManager : MonoBehaviour
     }
 
     public void playCheer() {
+        playAudioClip(soundbank.cheering);
+    }
+    
+    public void PlayRespawnSound() 
+    {
         playAudioClip(soundbank.cheering);
     }
 
