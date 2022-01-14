@@ -9,6 +9,11 @@ public class PlayerTimer : MonoBehaviour
     public Image timer;
     public Image timerBg;
 
+    public Image medal;
+
+    static string[] medalSpriteNames = {"medal_1","medal_2","medal_3","medal_4"};
+    static int nextMedalSprite = 0;
+
     Coroutine timerCoroutine;
 
     void Awake() {
@@ -38,5 +43,12 @@ public class PlayerTimer : MonoBehaviour
             yield return null;
         }
         endTimer();
+    }
+
+    public void OnEndedTrack() {
+        medal.enabled = true;
+        medal.overrideSprite = Resources.Load<Sprite>(medalSpriteNames[nextMedalSprite++]);
+
+        nextMedalSprite = nextMedalSprite % medalSpriteNames.Length;
     }
 }
