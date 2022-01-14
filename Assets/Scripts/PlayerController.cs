@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
             CheckInput();
         }
 
-
         isMoving = playerMovement.Rb.velocity.magnitude > MIN_VELOCITY_EPSILON;
         
         if (isOutOfBounds && !isMoving)
