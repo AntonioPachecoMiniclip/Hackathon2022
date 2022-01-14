@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         lr.enabled = false;
 
         capPosZ = transform.position.z;
+        movementStartPosition = transform.position;
 
         rb.mass = capStats.mass;
         rb.drag = capStats.linearDrag;
