@@ -7,8 +7,8 @@ using TMPro;
 public class SettingsInput : MonoBehaviour
 {
 
-    [SerializeField] TextMeshProUGUI soundON;
-    [SerializeField] TextMeshProUGUI soundOFF;
+
+   
 
     [SerializeField] Color activeColor;
     Color inactiveColor = new Color(0, 0, 0, 255);
@@ -16,8 +16,8 @@ public class SettingsInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundON.color = 0 == AudioListener.volume ? inactiveColor : activeColor;
-        soundOFF.color = 0 == AudioListener.volume ? activeColor : inactiveColor;
+ //       soundON.color = 0 == AudioListener.volume ? inactiveColor : activeColor;
+ //       soundOFF.color = 0 == AudioListener.volume ? activeColor : inactiveColor;
     }
 
     // Update is called once per frame
