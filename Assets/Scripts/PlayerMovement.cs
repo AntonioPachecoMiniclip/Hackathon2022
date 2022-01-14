@@ -61,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
         draggingPos.z = capPosZ;
 
         lr.positionCount = 2;
-        Vector3 newVector = Vector3.ClampMagnitude(dragStartPos - draggingPos, (maxDrag * 0.33f));
-        lr.SetPosition(1, newVector + movementStartPosition);
+        Vector3 newVector = Vector3.ClampMagnitude((dragStartPos - draggingPos), maxDrag);
+        lr.SetPosition(1, (newVector * 0.33f) + movementStartPosition);
     }
 
     public void DragRelease(Vector3 touchPosition)
