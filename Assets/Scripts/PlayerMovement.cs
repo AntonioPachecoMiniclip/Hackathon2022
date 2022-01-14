@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float power = 10f;
     public float maxDrag = 5f;
-    public float minForce = 1f;
+    public float minForce = 2f;
     private Rigidbody2D rb;
     private LineRenderer lr;
     private float capPosZ;
@@ -47,8 +47,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void DragStart(Vector3 touchPosition)
     {
-        lr.enabled = true;
-
         movementStartPosition = transform.position;
         dragStartPos = Camera.main.ScreenToWorldPoint(touchPosition);
         dragStartPos.z = capPosZ;
@@ -61,6 +59,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touchPosition);
         draggingPos.z = capPosZ;
+
+        Vector3 force = dragStartPos - draggingPos;
+        Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
+        if (clampedForce.magnitude >= minForce) 
+        {
+            lr.enabled = false;
+        }
+        
+        lr.enabled = true;
 
         lr.positionCount = 2;
         Vector3 newVector = Vector3.ClampMagnitude((dragStartPos - draggingPos), maxDrag);

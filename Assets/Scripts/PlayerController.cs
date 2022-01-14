@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Finished track! " + gameObject.name);
         hasFinishedTrack = true;
+        playerTimer.OnEndedTrack();
         GameManager.Instance.SetPlayerFinished(this);
     }
 
@@ -121,11 +122,14 @@ public class PlayerController : MonoBehaviour
         {
             zooming = false;
 
-            if (Input.GetMouseButtonDown(0)) {
-                playerMovement.DragStart(Input.mousePosition);
-            }
-            playerMovement.Dragging(Input.mousePosition);
-            if (Input.GetMouseButtonUp(0)) {
+            if (Input.GetMouseButtonDown(0))
+                playerMovement.DragStart(Input.mousePosition);            
+
+            if (Input.GetMouseButton(0))
+                playerMovement.Dragging(Input.mousePosition);
+            
+            if (Input.GetMouseButtonUp(0)) 
+            {
                 playerMovement.DragRelease(Input.mousePosition);
                 Shoot();
             }
