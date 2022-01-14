@@ -34,6 +34,20 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
         playAudioClip(soundbank.puff);
     }
 
+    public void playTickingSound() 
+    {
+        playAudioClip(soundbank.ticking);
+    }
+    public void playStartTimerSound() 
+    {
+        playAudioClip(soundbank.startTicking);
+    }
+
+    public void playEndTimerSound() 
+    {
+        playAudioClip(soundbank.endTicking);
+    }
+
     void playAudioClip(AudioClip clip) {
         sources[sourceIndex].clip = clip;
         sources[sourceIndex].Play();
