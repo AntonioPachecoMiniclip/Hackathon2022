@@ -1163,7 +1163,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7009144746549384639}
         m_TargetAssemblyTypeName: MainMenuInput, Assembly-CSharp
-        m_MethodName: playButtonCallback
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
