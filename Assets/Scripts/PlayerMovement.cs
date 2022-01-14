@@ -103,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void playSound() {
-        FindObjectOfType<SoundManager>().playCapSound(capStats.capType);
+    void playSound() 
+    {
+        SoundManager.Instance.playCapSound(capStats.capType);
     }
 }
