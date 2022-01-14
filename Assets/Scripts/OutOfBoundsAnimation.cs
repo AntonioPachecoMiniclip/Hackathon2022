@@ -3,28 +3,31 @@ using UnityEngine;
 
 public class OutOfBoundsAnimation : MonoBehaviour
 {
+    [SerializeField]
+    private float torqueMultiplier;
+    
     private Rigidbody rigidbody3D;
     private MeshRenderer model3D;
     private PlayerController playerController;
-    private MeshRenderer model2D;
     
     private void Start()
     {
         rigidbody3D = GetComponent<Rigidbody>();
         model3D = GetComponent<MeshRenderer>();
         rigidbody3D.isKinematic = true;
+        playerController = transform.parent.GetComponent<PlayerController>();
+        model3D.material = playerController.MeshRenderer.material;
     }
 
-    public void StartAnimation(PlayerController playerController, MeshRenderer model2D)
+    public void StartAnimation()
     {
-        this.playerController = playerController; 
-        this.model2D = model2D;
         Vector2 velocity = playerController.PlayerMovement.Rb.velocity;
-        model2D.enabled = false;
+        playerController.MeshRenderer.enabled = false;
         
         rigidbody3D.isKinematic = false;
+        rigidbody3D.constraints = RigidbodyConstraints.None;
         model3D.enabled = true;
-        rigidbody3D.AddTorque(velocity, ForceMode.Impulse);
+        rigidbody3D.AddTorque(velocity * torqueMultiplier, ForceMode.Impulse);
 
         StartCoroutine(CheckForAnimationEnd());
     }
@@ -38,14 +41,14 @@ public class OutOfBoundsAnimation : MonoBehaviour
     private void EndAnimation()
     {
         playerController.PlayerMovement.Rb.velocity = Vector2.zero;
-        model2D.enabled = true;
+        playerController.MeshRenderer.enabled = true;
         
         rigidbody3D.isKinematic = true;
         rigidbody3D.constraints = RigidbodyConstraints.FreezeRotation;
         model3D.enabled = false;
 
         Transform transform3D = transform;
-        Transform transform2D = model2D.transform;
+        Transform transform2D = playerController.MeshRenderer.transform;
         transform3D.position = transform2D.position;
         transform3D.rotation = transform2D.rotation;
     }

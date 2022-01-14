@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField]
     private MeshRenderer meshRenderer;
-
+    public MeshRenderer MeshRenderer => meshRenderer;
+    
     private bool isMoving;
     public bool IsMoving => isMoving;
 
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour
             if (!isOutOfBounds)
             {
                 isOutOfBounds = true;
-                outOfBoundsAnimation.StartAnimation(this, meshRenderer);
+                outOfBoundsAnimation.StartAnimation();
             }
         }
     }
