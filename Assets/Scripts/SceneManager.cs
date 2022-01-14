@@ -47,4 +47,10 @@ public class SceneManager : MonoBehaviour
         canvas.SetActive(false);
         UnityEngine.SceneManagement.SceneManager.LoadScene("TierSelector", LoadSceneMode.Additive);
     }
+
+    public static void loadInventory(GameObject canvas) {
+        SceneManager.canvas = canvas;
+        canvas.SetActive(false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Inventory", LoadSceneMode.Additive);
+    }
 }
