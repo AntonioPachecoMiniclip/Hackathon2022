@@ -92,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
         lr.enabled = false;
     }
 
+    public void ApplyDragModifier(float modifier) {
+        rb.drag *= modifier;
+    }
+
     void OnCollisionEnter2D(Collision2D col) {
         if(col.otherCollider.tag == "Player") {
             playSound();

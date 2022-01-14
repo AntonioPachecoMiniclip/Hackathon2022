@@ -105,12 +105,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
-        if(Camera.main.orthographicSize < ZoomMinBound) {
-            Camera.main.orthographicSize = ZoomMinBound;
-        } else if(Camera.main.orthographicSize > ZoomMaxBound) {
-            Camera.main.orthographicSize = ZoomMaxBound;
-        }
+        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, ZoomMinBound, ZoomMaxBound);
     }
 
     private void CheckZoom() {
@@ -180,9 +175,10 @@ public class PlayerController : MonoBehaviour
 
     void Zoom(float deltaMagnitudeDiff, float speed)
     {
-        Camera.main.orthographicSize -= deltaMagnitudeDiff * speed;
+        Debug.Log(deltaMagnitudeDiff);
+        float size = Camera.main.orthographicSize + deltaMagnitudeDiff * speed;
         // set min and max value of Clamp function upon your requirement
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, ZoomMinBound, ZoomMaxBound);
+        Camera.main.orthographicSize = Mathf.Clamp(size, ZoomMinBound, ZoomMaxBound);
     }
 
     private void LateUpdate()
