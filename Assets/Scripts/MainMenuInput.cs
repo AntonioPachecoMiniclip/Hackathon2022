@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MainMenuInput : MonoBehaviour
 {
+    public GameObject canvas;
+
     public void GoToMainMenu()
     {
         SceneManager.loadMainMenu();
@@ -9,16 +11,16 @@ public class MainMenuInput : MonoBehaviour
     
     public void playButtonCallback()
     {
-        SceneManager.loadTierSelector();
+        SceneManager.loadTierSelector(canvas);
     }
     
     public void settingsCallback()
     {
-        SceneManager.loadSettings();
+        SceneManager.loadSettings(canvas);
     }
     
     public void creditCallback()
     {
-        SceneManager.loadCredits();
+        SceneManager.loadCredits(canvas);
     }
 }

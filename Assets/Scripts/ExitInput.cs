@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExitInput : MonoBehaviour
 {
 
-    public void exitButtonCallback() {
-        SceneManager.loadMainMenu();
+    public void exitButtonCallback(string scene) {
+        SceneManager.unloadSceneToMainMenu(scene);
     }
 }
