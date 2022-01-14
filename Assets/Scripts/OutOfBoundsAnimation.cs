@@ -27,7 +27,8 @@ public class OutOfBoundsAnimation : MonoBehaviour
         rigidbody3D.isKinematic = false;
         rigidbody3D.constraints = RigidbodyConstraints.None;
         model3D.enabled = true;
-        rigidbody3D.AddTorque(velocity * torqueMultiplier, ForceMode.Impulse);
+        
+        rigidbody3D.AddTorque(new Vector3(-velocity.y, -velocity.x, 0) * torqueMultiplier, ForceMode.Impulse);
 
         StartCoroutine(CheckForAnimationEnd());
     }
