@@ -287,6 +287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: C'EST_SAR
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9523f9e567f374fe3b70cbafe285b4ce, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats
@@ -762,6 +767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SUS_ANA
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a117e75f38774944b8d72f85c107df4, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats
@@ -1367,6 +1377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A_ROZ
       objectReference: {fileID: 0}
+    - target: {fileID: 4050881131367945880, guid: d994ce03f259c48f58fca380c73843a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a6bd93ea63e747f69e4b621119de7e3, type: 2}
     - target: {fileID: 7170962038403184366, guid: d994ce03f259c48f58fca380c73843a1,
         type: 3}
       propertyPath: capStats
