@@ -105,10 +105,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if(col.otherCollider.tag == "Player") {
-            playCapSound();
-        }
-        else if(col.otherCollider.tag == "CanMovableObject") {
+
+        playCapSound();
+
+        if(col.collider.tag == "CanMovableObject") {
             playCanHittingSound();
         }
         
