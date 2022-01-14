@@ -36,8 +36,14 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
 
     public void playTickingSound() 
     {
-        playAudioClip(soundbank.ticking);
+        playAudioClip(soundbank.ticking, true);
     }
+    
+    public void StopTickingSound() 
+    {
+        StopAudioClip(soundbank.ticking);
+    }
+    
     public void playStartTimerSound() 
     {
         playAudioClip(soundbank.startTicking);
@@ -48,10 +54,30 @@ public class SoundManager : SceneBoundSingletonBehaviour<SoundManager>
         playAudioClip(soundbank.endTicking);
     }
 
-    void playAudioClip(AudioClip clip) {
+    private void playAudioClip(AudioClip clip, bool loop = false)
+    {
+        sources[sourceIndex].loop = loop;
         sources[sourceIndex].clip = clip;
         sources[sourceIndex].Play();
         incrementSourceIndex();
+    }
+    
+    private void StopAudioClip(AudioClip clip)
+    {
+        AudioSource audioSource = GetSourceWithClip(clip);
+        if (audioSource != null)
+            audioSource.Stop();
+    }
+
+    private AudioSource GetSourceWithClip(AudioClip clip)
+    {
+        for (int i = 0; i < sources.Length; i++)
+        {
+            if (sources[i].clip == clip)
+                return sources[i];
+        }
+
+        return null;
     }
 
     void incrementSourceIndex() {
