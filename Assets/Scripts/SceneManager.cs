@@ -27,7 +27,7 @@ public class SceneManager : MonoBehaviour
     }
 
     public static void loadGame() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("FinalLevel");
     }
     
     public static void loadCredits(GameObject canvas) {
