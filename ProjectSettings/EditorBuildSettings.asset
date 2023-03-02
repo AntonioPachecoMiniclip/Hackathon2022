@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Inventory.unity
     guid: c52077f0b4ff547beaedeb3c0c327035
   - enabled: 1
-    path: Assets/Samples/Relay/1.0.5/Simple Relay Sample (using UTP)/SimpleRelayUtp.unity
-    guid: 3573da1ccba6a412e965f523d689fbd6
+    path: Assets/Scenes/Lobby.unity
+    guid: 22ef0437597294b4b8658944ad347373
   m_configObjects: {}
