@@ -45,7 +45,7 @@ public class SimpleRelay : MonoBehaviour
     Guid hostAllocationId;
     Guid playerAllocationId;
     string allocationRegion = "";
-    string joinCode = "n/a";
+    string joinCode = "BCBBLF";
     string playerId = "Not signed in";
     string autoSelectRegionName = "auto-select (QoS)";
     int regionAutoSelectIndex = 0;
@@ -171,7 +171,7 @@ public class SimpleRelay : MonoBehaviour
 
         try
         {
-            var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+            var joinAllocation = await RelayService.Instance.JoinAllocationAsync("BCBBLF");
             playerAllocationId = joinAllocation.AllocationId;
             Debug.Log("Player Allocation ID: " + playerAllocationId);
         }
