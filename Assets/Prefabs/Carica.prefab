@@ -327,6 +327,7 @@ MonoBehaviour:
   power: 10
   maxDrag: 5
   minForce: 1
+  forceMultiplier: 3
   dragStartPos: {x: 0, y: 0, z: 0}
   movementStartPosition: {x: 0, y: 0, z: 0}
   capStats: {fileID: 0}
