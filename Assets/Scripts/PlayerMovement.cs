@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         lr.SetPosition(1, (newVector * 0.33f) + movementStartPosition);
     }
 
-    public bool DragRelease(Vector3 touchPosition)
+    public Vector3 DragRelease(Vector3 touchPosition)
     {
         bool shot = false;
         lr.positionCount = 0;
@@ -86,16 +86,21 @@ public class PlayerMovement : MonoBehaviour
         Vector3 force = forceMultiplier * (dragStartPos - dragReleasePos);
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
-        if(clampedForce.magnitude >= minForce) {
-            rb.AddForce(clampedForce, ForceMode2D.Impulse);
-            playCapSound();
-            shot = true;
+        if(clampedForce.magnitude < minForce) {
+            clampedForce = Vector3.zero;
         }
         
         DragReset();
-        return shot;
+        return clampedForce;
     }
 
+    public void playShot(Vector3 force) {
+        if(force.magnitude >= minForce) {
+            rb.AddForce(force, ForceMode2D.Impulse);
+            playCapSound();
+        }
+    }
+ 
     public void DragReset() {
         dragStartPos = Vector3.zero;
         lr.enabled = false;

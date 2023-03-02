@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 {
-    [HideInInspector]
-    public int CurrentPlayerIndex;
+    private int localPlayerIndex = 0;
 
     public CameraFollow Camera;
     [SerializeField]
@@ -15,7 +14,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
     public List<PlayerController> players;
     public List<PlayerController> FinishedPlayers;
 
-    public PlayerController CurrentPlayer => players[CurrentPlayerIndex];
+    public PlayerController localPlayer => players[localPlayerIndex];
 
     private void Start()
     {
@@ -46,7 +45,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
         }
     }
 
-    private bool IsAnyPlayerMoving()
+    public bool IsAnyPlayerMoving()
     {
         for (int i = 0; i < players.Count; i++)
         {
@@ -64,11 +63,35 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 
     private IEnumerator CheckIfAllPlayersStopped(Action callback)
     {
+        yield return new WaitForSeconds(1.0f);
         while (IsAnyPlayerMoving())
         {
             yield return new WaitForSeconds(0.2f);
         }
 
         callback();
+    }
+
+    public void PlayShots()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            PlayerController player = players[i];
+            if (player.IsReadyToShoot() && !FinishedPlayers.Contains(player))
+            {
+                player.playQeuedShot();
+            }
+        }
+    }
+
+    public bool AllPlayersReadyToShoot() {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (!players[i].IsReadyToShoot() && !FinishedPlayers.Contains(players[i]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

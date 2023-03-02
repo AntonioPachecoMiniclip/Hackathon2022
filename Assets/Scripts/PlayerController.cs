@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public static float RespawnWaitTime = 0.1f;
 
     public static Action PlayerShoot;
+    public static Action PlayerInputGiven;
 
     public Sprite PlayerAvatar;
     public GameObject decal;
@@ -38,6 +39,9 @@ public class PlayerController : MonoBehaviour
    
     private bool canMove;
 
+    private Vector3 queuedShotInput = Vector3.zero;
+    private bool isReady;
+
     private bool zooming = false;
     private bool hasFinishedTrack;
 
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public void StartTurn(float duration)
     {
         ghost.SetActive(false);
+        isReady = false;
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
@@ -135,8 +140,8 @@ public class PlayerController : MonoBehaviour
             
             if (Input.GetMouseButtonUp(0)) 
             {
-                playerMovement.DragRelease(Input.mousePosition);
-                Shoot();
+                queuedShotInput = playerMovement.DragRelease(Input.mousePosition);
+                OnShotInputGiven();
             }
         }
 
@@ -173,8 +178,10 @@ public class PlayerController : MonoBehaviour
         }
 
         if (touch.phase == TouchPhase.Ended) {
-            if(playerMovement.DragRelease(touch.position)) {
-                Shoot();
+            Vector3 shotInput = playerMovement.DragRelease(touch.position);
+            if (shotInput.sqrMagnitude > float.Epsilon) {
+                queuedShotInput = shotInput;
+                OnShotInputGiven();
             }
         }
     }
@@ -201,11 +208,22 @@ public class PlayerController : MonoBehaviour
         Destroy(ps.gameObject, 0.5f);
     }
 
-    private void Shoot()
+    private void OnShotInputGiven()
     {
         DisablePlayer();
+        isReady = true;
+        PlayerInputGiven.Invoke();
+    }
+
+    public bool IsReadyToShoot()
+    {
+        return isReady;
+    }
+
+    public void playQeuedShot()
+    {
+        playerMovement.playShot(queuedShotInput);
         isMoving = true;
-        PlayerShoot.Invoke();
     }
 
     private void DisablePlayer()

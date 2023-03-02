@@ -24,7 +24,7 @@ public class TurnEndState : GameState
 
     public override void OnUpdate()
     {
-        if (!GameManager.Instance.CurrentPlayer.IsMoving && !alreadyEnded)
+        if (!GameManager.Instance.IsAnyPlayerMoving() && !alreadyEnded)
             gameStateMachine.StartCoroutine(DelayTriggerEndState());
     }
 
