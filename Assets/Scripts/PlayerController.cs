@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
    
     private bool canMove;
 
-    private Vector3 queuedShotInput = Vector3.zero;
+    private Vector3 queuedShotInput = new Vector3(0,50,0);
     private bool isReady;
 
     private bool zooming = false;
@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         ghost.SetActive(false);
         isReady = false;
+        queuedShotInput = new Vector3(0, 50, 0);
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);

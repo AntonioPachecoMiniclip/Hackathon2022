@@ -77,10 +77,11 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
         for (int i = 0; i < players.Count; i++)
         {
             PlayerController player = players[i];
-            if (player.IsReadyToShoot() && !FinishedPlayers.Contains(player))
-            {
-                player.playQeuedShot();
-            }
+            player.playQeuedShot();
+            //if (player.IsReadyToShoot() && !FinishedPlayers.Contains(player))
+            //{
+            //    player.playQeuedShot();
+            //}
         }
     }
 
