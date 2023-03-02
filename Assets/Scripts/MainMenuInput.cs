@@ -13,7 +13,12 @@ public class MainMenuInput : MonoBehaviour
     {
         SceneManager.loadTierSelector(canvas);
     }
-    
+
+    public void characterSelectorButtonCallback()
+    {
+        SceneManager.loadCharacterSelector(canvas);
+    }
+
     public void settingsCallback()
     {
         SceneManager.loadSettings(canvas);
