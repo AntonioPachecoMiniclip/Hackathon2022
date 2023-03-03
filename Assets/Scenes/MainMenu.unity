@@ -210,6 +210,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 342717429}
     m_Modifications:
+    - target: {fileID: 3403268176505805307, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403268176505805307, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93115351}
+    - target: {fileID: 3403268176505805307, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: joinButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403268176505805307, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuInput, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3403268177667656730, guid: 9a9e89ca35abf4ce08677f74fab93c30,
         type: 3}
       propertyPath: m_Name
@@ -347,13 +367,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8188779345730044727, guid: 9a9e89ca35abf4ce08677f74fab93c30,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8188779345730044727, guid: 9a9e89ca35abf4ce08677f74fab93c30,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 93115350}
+    - target: {fileID: 8188779345730044727, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: createButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188779345730044727, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuInput, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9e89ca35abf4ce08677f74fab93c30, type: 3}
@@ -363,6 +393,50 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 93115345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &93115347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3403268177667656730, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+    type: 3}
+  m_PrefabInstance: {fileID: 93115345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &93115348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8188779345730044729, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+    type: 3}
+  m_PrefabInstance: {fileID: 93115345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &93115349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3403268176505805305, guid: 9a9e89ca35abf4ce08677f74fab93c30,
+    type: 3}
+  m_PrefabInstance: {fileID: 93115345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &93115350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93115348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fef311a1ff7e41dca5d15db7e233491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 342717425}
+--- !u!114 &93115351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93115349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fef311a1ff7e41dca5d15db7e233491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 342717425}
 --- !u!1 &152013227
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,17 +922,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 434864385}
-        m_TargetAssemblyTypeName: MainMenuInput, Assembly-CSharp
-        m_MethodName: playButtonCallback
-        m_Mode: 1
+      - m_Target: {fileID: 93115347}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &434864383
 MonoBehaviour:

@@ -11,9 +11,19 @@ public class MainMenuInput : MonoBehaviour
     
     public void playButtonCallback()
     {
+        
+    }
+
+    public void joinButtonCallback()
+    {
+        //SceneManager.loadTierSelector(canvas);
+    }
+
+    public void createButtonCallback()
+    {
         SceneManager.loadTierSelector(canvas);
     }
-    
+
     public void settingsCallback()
     {
         SceneManager.loadSettings(canvas);
