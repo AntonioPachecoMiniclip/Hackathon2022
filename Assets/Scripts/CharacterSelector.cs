@@ -7,7 +7,8 @@ public class CharacterSelector : MonoBehaviour
     public enum LayerPosition { Front, Back };
 
     // Serializabele properties
-    [SerializeField] private GameObject CharactersContainer;
+    [SerializeField] private GameObject charactersContainer;
+    [SerializeField] private TMPro.TextMeshProUGUI label;
     [SerializeField] public bool debugLabelIsVisible;
     [SerializeField] public float circleRadius;
     [SerializeField] public float shiftRads;
@@ -17,8 +18,11 @@ public class CharacterSelector : MonoBehaviour
 
     // Private properties
     private MeshRenderer[] characters;
+    private TextMeshProUGUI characterLabel;
     private TextMeshProUGUI debugLabel;
-    public int numberOfElements;
+    private int numberOfElements;
+
+    private int selectedCharacterIndex = 0;
 
     
     private float posX;
@@ -29,13 +33,17 @@ public class CharacterSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characters = CharactersContainer.GetComponentsInChildren<MeshRenderer>();
+        characters = charactersContainer.GetComponentsInChildren<MeshRenderer>();
+        characterLabel = label.GetComponentInChildren<TextMeshProUGUI>();
         numberOfElements = characters.Length;
-        circleRadius = 250f;
-        shiftRads = 0f;
-        fieldDepth = 2f;
-        minimumScale = 500000f;
-        maximumScale = 1500000f;
+
+        // Initialize the characters position
+        for (int i = 0; i < numberOfElements; i++)
+        {
+            CalculateCharactersPosition(characters[i], i);
+        }
+        SnapToCharacter(selectedCharacterIndex);
+        
     }
 
     private void Update()
@@ -45,7 +53,10 @@ public class CharacterSelector : MonoBehaviour
             CalculateCharactersPosition(characters[i], i);
         }
 
-        shiftRads += 0.001f;
+        // Update the label with the selected character
+        // characterLabel.text = "CHEETAH";
+
+        // shiftRads += 0.001f;
     }
 
     public void characterSelectButtonCallback()
@@ -60,21 +71,29 @@ public class CharacterSelector : MonoBehaviour
     public void characterRotateCallback()
     {
         // rotate the existing characters
-        Debug.Log("characterRotateCallback :: rotate the existing characters");
+
+        Debug.Log($"{this.name}");
+
+        Debug.Log($"characterRotateCallback :: rotate the existing characters");
         if (null != characters)
         {
             Debug.Log($"Number of characters: {numberOfElements}");
         }
     }
 
+    public void SnapToCharacter(int selectedCharacterIndex) {
+
+        if (numberOfElements > 0 && selectedCharacterIndex >= 0 && selectedCharacterIndex < numberOfElements) {
+
+        }
+    }
+
     public void CalculateCharactersPosition(MeshRenderer character, int i)
     {
+
         // Initialize debug label
         debugLabel = character.GetComponentInChildren<TextMeshProUGUI>();
         debugLabel.enabled = debugLabelIsVisible;
-
-        if(debugLabelIsVisible)
-            Debug.Log($"Character affected :: {character.name}");
 
         // Original angle
         float angle = i * Mathf.PI * 2 / numberOfElements;
@@ -88,17 +107,12 @@ public class CharacterSelector : MonoBehaviour
         posY = -50;
         posZ = layerPosition.Equals(LayerPosition.Front) ? -1000 : -200;
         Vector3 newPos = new Vector3(posX, posY, posZ);
-        if (debugLabelIsVisible)
-            Debug.Log($"POS::Character[{i}] == Vector3({newPos.x}, {newPos.y}, {newPos.z})");
-
 
         // Define scale based on angle
         float deltaScale = maximumScale - minimumScale;
         float deltaMidpoint = deltaScale / 2;
         scale = layerPosition.Equals(LayerPosition.Front)? deltaMidpoint + Mathf.Sin(finalAngle) * (deltaMidpoint) : deltaMidpoint - Mathf.Sin(finalAngle) * (deltaMidpoint / fieldDepth);
         Vector3 newScale = new Vector3(scale, scale, scale);
-        if (debugLabelIsVisible)
-            Debug.Log($"SCALE::Character[{i}] == Vector3({newScale.x}, {newScale.y}, {newScale.z})");
 
         // Transform the character's position and scale
         character.transform.localPosition = newPos;
@@ -111,5 +125,15 @@ public class CharacterSelector : MonoBehaviour
                 $"- Pos({newPos.x}, {newPos.y}, {newPos.y})\r\n" +
                 $"- Scale({newScale.x}, {newScale.y}, {newScale.z})\r\n" +
                 $"[{layerPosition}]";
-    }
+
+
+        string characterName = string.Empty;
+        if (layerPosition.Equals(LayerPosition.Front) && finalAngle > (0.3 * Mathf.PI) && finalAngle < (0.7 * Mathf.PI))
+        {
+            
+            characterName = character.name;
+            Debug.Log($"Eu acabei de descobrir [{characterName}]");
+        }
+        characterLabel.text = characterName;
+    } 
 }
