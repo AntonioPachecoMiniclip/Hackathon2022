@@ -28,6 +28,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 
     private void Start()
     {
+        networkPlayers = new Dictionary<ulong, NetworkPlayerBehaviour>();
         foreach(NetworkPlayerBehaviour networkPlayerBehaviour in FindObjectsOfType<NetworkPlayerBehaviour>())
         {
             networkPlayers.Add(networkPlayerBehaviour.OwnerClientId, networkPlayerBehaviour);
