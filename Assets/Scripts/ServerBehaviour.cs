@@ -11,7 +11,7 @@ public class ServerBehaviour : MonoBehaviour
 
     void Start ()
     {
-        m_Driver = ReplayHelper.CreateServerDriver();
+        m_Driver = RelayHelper.CreateServerDriver();
         var endpoint = NetworkEndPoint.AnyIpv4; // The local address to which the client will connect to is 127.0.0.1
         if (m_Driver.Bind(endpoint) != 0)
             Debug.Log("Failed to bind server endpoint");

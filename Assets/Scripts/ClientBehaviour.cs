@@ -10,7 +10,7 @@ public class ClientBehaviour : MonoBehaviour
 
     void Start ()
     {
-        m_Driver = ReplayHelper.CreateClientDriver();
+        m_Driver = RelayHelper.CreateServerDriver();
         m_Connection = default(NetworkConnection);
 
         var endpoint = NetworkEndPoint.AnyIpv4;
