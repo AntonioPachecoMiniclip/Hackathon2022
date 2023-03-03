@@ -54,4 +54,10 @@ public class GameStateMachine : MonoBehaviour
     {
         currentState.OnUpdate();
     }
+
+    public void DebugTriggerEndState()
+    {
+        WaitForOtherPlayersState state = (WaitForOtherPlayersState)GetState<WaitForOtherPlayersState>();
+        state.DebugTriggerEndState();
+    }
 }

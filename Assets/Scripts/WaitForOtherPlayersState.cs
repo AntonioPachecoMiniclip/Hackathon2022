@@ -21,4 +21,9 @@ public class WaitForOtherPlayersState : GameState
         if (GameManager.Instance.AllPlayersReadyToShoot() || /*Debug*/Input.GetKeyDown(KeyCode.K))
             TriggerEndState();
     }
+
+    public void DebugTriggerEndState()
+    {
+        TriggerEndState();
+    }
 }
