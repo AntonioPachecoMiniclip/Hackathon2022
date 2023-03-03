@@ -18,11 +18,9 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
 
     public void setShotInput(Vector3 shotInput)
     {
-        if (IsOwner)
-        {
-            this.shotInput.Value = shotInput;
-            Debug.LogWarning("Shot sent: " + shotInput);
-        }
+        this.shotInput.Value = shotInput;
+        Debug.LogWarning("Shot sent: " + shotInput);
+        
     }
     public void resetShotInput()
     {

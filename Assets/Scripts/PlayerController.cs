@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour
         ghost.SetActive(false);
         isReady = false;
         queuedShotInput = Vector3.zero;
-        if(networkPlayerId != 0)
-            GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
+
+        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
@@ -237,8 +237,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnShotInputGiven()
     {
-        if (networkPlayerId != 0)
-            GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
+        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
         DisablePlayer();
         isReady = true;
         PlayerInputGiven.Invoke();
@@ -260,6 +259,8 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.playShot(queuedShotInput);
         isMoving = true;
+        isReady = false;
+        queuedShotInput = Vector3.zero;
     }
 
     private void DisablePlayer()
