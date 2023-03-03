@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
    
     private bool canMove;
 
-    private Vector3 queuedShotInput = Vector3.zero;
+    private Vector3 queuedShotInput = new Vector3(0, 50, 0);
     private bool isReady;
     public ulong networkPlayerId = 0;
 
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         ghost.SetActive(false);
         isReady = false;
-        queuedShotInput = Vector3.zero;
+        queuedShotInput = new Vector3(0, 50, 0);
         GameManager.Instance?.getNetworkPlayerForId(networkPlayerId)?.resetShotInput();
         canMove = true;
         decal.SetActive(true);
