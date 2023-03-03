@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuInput : MonoBehaviour
 {
     public GameObject canvas;
+
+    public GameObject codeText;
 
     public void GoToMainMenu()
     {
@@ -37,7 +40,7 @@ public class MainMenuInput : MonoBehaviour
 
     public void createGameCallback()
     {
-        RelayHelper.CreateRelay();
+        RelayHelper.CreateRelay(codeText.GetComponent<TMP_Text>());
     }
 
     public void joinGameCallback()
@@ -50,7 +53,7 @@ public class MainMenuInput : MonoBehaviour
         }
         else
         {
-            RelayHelper.JoinRelay(inputField.text);
+            RelayHelper.JoinRelay(inputField.text, codeText.GetComponent<TMP_Text>());
         }
     }
 

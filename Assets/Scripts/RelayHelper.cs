@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -9,11 +10,12 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using Unity.Services.Authentication;
+using TMPro;
 
 public class RelayHelper : MonoBehaviour
 {
     static Allocation serverAllocation = null;
-    static Allocation clientAllocation = null;
+    public static string joinCode = "";
     
     public static async void Start() {
         await UnityServices.InitializeAsync();
@@ -26,7 +28,7 @@ public class RelayHelper : MonoBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-    public static async void CreateRelay()
+    public static async void CreateRelay(TMP_Text textMesh)
     {
         if(NetworkManager.Singleton.IsHost)
         {
@@ -35,8 +37,9 @@ public class RelayHelper : MonoBehaviour
         try {
             serverAllocation = await RelayService.Instance.CreateAllocationAsync(3);
 
-            string joinCode = await RelayService.Instance.GetJoinCodeAsync(serverAllocation.AllocationId);
+            joinCode = await RelayService.Instance.GetJoinCodeAsync(serverAllocation.AllocationId);
             Debug.Log(joinCode);
+            textMesh.SetText(joinCode);
 
             RelayServerData relayServerData = new RelayServerData(serverAllocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
@@ -59,7 +62,7 @@ public class RelayHelper : MonoBehaviour
         return NetworkDriver.Create(settings);
     }
 
-    public static async void JoinRelay(string joinCode)
+    public static async void JoinRelay(string joinCode, TMP_Text textMesh)
     {
         try {
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
@@ -69,8 +72,11 @@ public class RelayHelper : MonoBehaviour
             NetworkManager.Singleton.StartClient();
 
             Debug.Log(" " + NetworkManager.Singleton.IsListening);
+
+            textMesh.SetText("Joined");
         } catch (RelayServiceException e) {
             Debug.Log(e);
+            textMesh.SetText("Error");
         }
     }
 }
