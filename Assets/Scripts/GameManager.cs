@@ -8,7 +8,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
     [HideInInspector]
     public int CurrentPlayerIndex;
 
-    public CameraFollow Camera;
+    //public CameraFollow Camera;
     [SerializeField]
     private GameResultsUI gameResultsUI;
 
