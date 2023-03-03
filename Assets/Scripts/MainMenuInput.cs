@@ -48,4 +48,9 @@ public class MainMenuInput : MonoBehaviour
             RelayHelper.JoinRelay(inputField.text);
         }
     }
+
+    public void enterGameCallback()
+    {
+        SceneManager.loadGame();
+    }
 }

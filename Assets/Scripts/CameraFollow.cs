@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour
     private GameObject targetPlayer;
     private InterpolatedTransform interpolatedTransform;
     private InterpolatedTransformUpdater interpolatedTransformUpdater;
+    [SerializeField]
+    private Vector3 offset;
 
     private void Start()
     {
@@ -31,7 +33,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 position = transform.position;
         position = Vector3.Lerp(
             position,
-            new Vector3(targetPosition.x, targetPosition.y, position.z),
+            new Vector3(targetPosition.x + offset.x, targetPosition.y + offset.y, position.z),
             speed * Time.deltaTime
         );
         transform.position = position;
