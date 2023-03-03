@@ -39,8 +39,9 @@ public class PlayerController : MonoBehaviour
    
     private bool canMove;
 
-    private Vector3 queuedShotInput = new Vector3(0,50,0);
+    private Vector3 queuedShotInput = Vector3.zero;
     private bool isReady;
+    public ulong networkPlayerId = 0;
 
     private bool zooming = false;
     private bool hasFinishedTrack;
@@ -67,6 +68,11 @@ public class PlayerController : MonoBehaviour
         return meshes[index];
     }
 
+    public void SetNetworkPlayerId(ulong networkPlayerId)
+    {
+        this.networkPlayerId = networkPlayerId;
+    }
+
     public void SetupWithCharacterIndex(int index)
     {
         Mesh m = getMeshForIndex(index);
@@ -80,7 +86,8 @@ public class PlayerController : MonoBehaviour
     {
         ghost.SetActive(false);
         isReady = false;
-        queuedShotInput = new Vector3(0, 50, 0);
+        queuedShotInput = Vector3.zero;
+        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
@@ -229,10 +236,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnShotInputGiven()
     {
-        //TODO send shot to other players
+        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
         DisablePlayer();
         isReady = true;
         PlayerInputGiven.Invoke();
+    }
+
+    public void ReceivedShotInput(Vector3 shotInput)
+    {
+        queuedShotInput = shotInput;
+        isReady = true;
     }
 
     public bool IsReadyToShoot()

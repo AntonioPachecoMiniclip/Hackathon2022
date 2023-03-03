@@ -14,7 +14,7 @@ public struct PlayerSettings
 
 public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 {
-    public static List<PlayerSettings> playerSettings;
+    public static Dictionary<ulong, NetworkPlayerBehaviour> networkPlayers;
     private int localPlayerIndex = 0;
 
     public CameraFollow Camera;
@@ -28,17 +28,44 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 
     private void Start()
     {
-        if(playerSettings.Count != players.Count)
+        foreach(NetworkPlayerBehaviour networkPlayerBehaviour in FindObjectsOfType<NetworkPlayerBehaviour>())
+        {
+            networkPlayers.Add(networkPlayerBehaviour.OwnerClientId, networkPlayerBehaviour);
+        }
+
+        if(networkPlayers.Count != players.Count)
         {
             Debug.LogError("Player Settings don't match number of player controllers");
             return;
         }
-        for(int i=0; i < playerSettings.Count; i++)
+
+        int i = 0;
+        foreach(NetworkPlayerBehaviour n in networkPlayers.Values)
         {
-            players[i].SetupWithCharacterIndex(playerSettings[i].characterIndex);
+            players[i].SetupWithCharacterIndex(n.getCharacterIndex());
+            players[i].SetNetworkPlayerId(n.OwnerClientId);
+            i++;
         }
 
         FinishedPlayers = new List<PlayerController>(players.Count);
+    }
+
+    public void OnShotInputUpdated(Vector3 previousValue, Vector3 newValue, ulong networkPlayerId)
+    {
+        foreach(PlayerController p in players)
+        {
+            if(p.networkPlayerId == networkPlayerId)
+            {
+                p.ReceivedShotInput(newValue);
+            }
+        }
+    }
+
+    public NetworkPlayerBehaviour getNetworkPlayerForId(ulong ownerClientId)
+    {
+        NetworkPlayerBehaviour n;
+        networkPlayers.TryGetValue(ownerClientId, out n);
+        return n;
     }
 
     public void ShowGameResults()

@@ -36,11 +36,6 @@ public class SceneManager : MonoBehaviour
     }
 
     public static void loadGame() {
-        GameManager.playerSettings = new List<PlayerSettings>();
-        GameManager.playerSettings.Add(new PlayerSettings(0));
-        GameManager.playerSettings.Add(new PlayerSettings(0));
-        GameManager.playerSettings.Add(new PlayerSettings(0));
-        GameManager.playerSettings.Add(new PlayerSettings(0));
         UnityEngine.SceneManagement.SceneManager.LoadScene("FinalLevel");
     }
     
