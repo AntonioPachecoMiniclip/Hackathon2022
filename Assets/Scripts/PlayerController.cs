@@ -246,6 +246,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReceivedShotInput(Vector3 shotInput)
     {
+        Debug.LogWarning("Shot received: " + shotInput);
         queuedShotInput = shotInput;
         isReady = true;
     }
