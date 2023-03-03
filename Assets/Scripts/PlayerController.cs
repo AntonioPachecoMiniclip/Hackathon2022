@@ -59,8 +59,8 @@ public class PlayerController : MonoBehaviour
         playerTimer = GetComponent<PlayerTimer>();
         outOfBoundsAnimation = GetComponentInChildren<OutOfBoundsAnimation>();
         meshes[0] = Resources.Load<Mesh>("Cheetah");
-        //meshes[1] = Resources.Load<Mesh>("Rhino");
-        //meshes[2] = Resources.Load<Mesh>("Sheep");
+        meshes[1] = Resources.Load<Mesh>("Rhino");
+        meshes[2] = Resources.Load<Mesh>("Shiba");
     }
 
     public Mesh getMeshForIndex(int index)

@@ -12,6 +12,7 @@ public class CapStats : ScriptableObject
 {
     public string capName;
     public float mass;
+    public Mesh mesh;
     public PhysicsMaterial2D physicsMaterial;
     public float linearDrag;
     public float maxDrag;

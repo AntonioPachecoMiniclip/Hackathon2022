@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capName: Strung Cap
   mass: 4
+  mesh: {fileID: 8245565285401710969, guid: 7ecce2b4a747d472fadeb5654dd3b12e, type: 3}
   physicsMaterial: {fileID: 6200000, guid: bb4d1ed847ed447f2a0abfdaa9c10ab5, type: 2}
   linearDrag: 3
   maxDrag: 5

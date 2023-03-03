@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capName: Basic Cap
   mass: 0.9
+  mesh: {fileID: -6494261446636988368, guid: bd341e41a66b34bfe98192a23d8be6b4, type: 3}
   physicsMaterial: {fileID: 6200000, guid: bb4d1ed847ed447f2a0abfdaa9c10ab5, type: 2}
   linearDrag: 2
   maxDrag: 5
