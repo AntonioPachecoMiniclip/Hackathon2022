@@ -236,7 +236,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnShotInputGiven()
     {
-        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
+        GameManager.Instance?.getNetworkPlayerForId(networkPlayerId)?.setShotInput(queuedShotInput);
         DisablePlayer();
         isReady = true;
         PlayerInputGiven.Invoke();
