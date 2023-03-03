@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerTimer = GetComponent<PlayerTimer>();
         outOfBoundsAnimation = GetComponentInChildren<OutOfBoundsAnimation>();
-        meshes[0] = Resources.Load<Mesh>("Cheetah");
+        meshes[0] = Resources.Load<Mesh>("Bottom");
         //meshes[1] = Resources.Load<Mesh>("Rhino");
         //meshes[2] = Resources.Load<Mesh>("Sheep");
     }
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         Mesh m = getMeshForIndex(index);
         foreach (MeshFilter meshFilter in transform.GetComponentsInChildren<MeshFilter>())
         {
-            meshFilter.mesh = m;
+            //meshFilter.mesh = m;
         }
     }
 

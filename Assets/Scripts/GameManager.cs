@@ -50,7 +50,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
             players[i].SetNetworkPlayerId(n.OwnerClientId);
             i++;
         }
-        for (int j = players.Count - 1; j >= i; j++) {
+        for (int j = players.Count - 1; j >= i; j--) {
             GameObject.Destroy(players[j].gameObject);
             players.RemoveAt(j);
         }
