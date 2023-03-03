@@ -50,12 +50,30 @@ public class PlayerController : MonoBehaviour
     float TouchZoomSpeed = 0.007f;
     float ZoomMinBound = 2.2f;
     float ZoomMaxBound = 10.0f;
+    Mesh[] meshes = new Mesh[3];
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerTimer = GetComponent<PlayerTimer>();
         outOfBoundsAnimation = GetComponentInChildren<OutOfBoundsAnimation>();
+        meshes[0] = Resources.Load<Mesh>("Cheetah");
+        //meshes[1] = Resources.Load<Mesh>("Rhino");
+        //meshes[2] = Resources.Load<Mesh>("Sheep");
+    }
+
+    public Mesh getMeshForIndex(int index)
+    {
+        return meshes[index];
+    }
+
+    public void SetupWithCharacterIndex(int index)
+    {
+        Mesh m = getMeshForIndex(index);
+        foreach (MeshFilter meshFilter in transform.GetComponentsInChildren<MeshFilter>())
+        {
+            meshFilter.mesh = m;
+        }
     }
 
     public void StartTurn(float duration)

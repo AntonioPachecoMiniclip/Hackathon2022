@@ -829,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 16e3389814f4b44ccb402a0764f14b8d,
         type: 3}
       propertyPath: m_Name
-      value: BCR_Bottlecap_Metal (1)
+      value: OutOfBoundsModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e3389814f4b44ccb402a0764f14b8d, type: 3}
@@ -959,7 +959,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a9f80acc5cd1243939468014d609887b,
         type: 3}
       propertyPath: m_Name
-      value: BMP_Characters_WIP2 (3)
+      value: GameModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f80acc5cd1243939468014d609887b, type: 3}

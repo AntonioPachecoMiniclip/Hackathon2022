@@ -3,11 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct PlayerSettings
+{
+    public PlayerSettings(int characterIndex)
+    {
+        this.characterIndex = characterIndex;
+    }
+    public int characterIndex { get; }
+}
+
 public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 {
+    public static List<PlayerSettings> playerSettings;
     private int localPlayerIndex = 0;
 
-    //public CameraFollow Camera;
+    public CameraFollow Camera;
     [SerializeField]
     private GameResultsUI gameResultsUI;
 
@@ -18,6 +28,16 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 
     private void Start()
     {
+        if(playerSettings.Count != players.Count)
+        {
+            Debug.LogError("Player Settings don't match number of player controllers");
+            return;
+        }
+        for(int i=0; i < playerSettings.Count; i++)
+        {
+            players[i].SetupWithCharacterIndex(playerSettings[i].characterIndex);
+        }
+
         FinishedPlayers = new List<PlayerController>(players.Count);
     }
 

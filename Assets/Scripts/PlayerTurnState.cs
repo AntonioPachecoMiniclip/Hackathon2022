@@ -26,8 +26,9 @@ public class PlayerTurnState : GameState
     private void StartPlayerTurn()
     {
         GameManager gameManager = GameManager.Instance;
-        
+
         PlayerController localPlayer = gameManager.localPlayer;
+        GameManager.Instance.Camera.SetTarget(localPlayer.gameObject);
 
         localPlayer.StartTurn(totalDuration);
     }
