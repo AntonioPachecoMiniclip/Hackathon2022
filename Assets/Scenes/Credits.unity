@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Special Thanks!
+  m_text: Sound Track
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 179de98ca201149f9bc13749a2c7d67b, type: 2}
   m_sharedMaterial: {fileID: -2605984843475507254, guid: 179de98ca201149f9bc13749a2c7d67b,
