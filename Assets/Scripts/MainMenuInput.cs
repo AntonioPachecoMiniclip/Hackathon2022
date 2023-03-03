@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuInput : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class MainMenuInput : MonoBehaviour
     
     public void playButtonCallback()
     {
-        SceneManager.loadTierSelector(canvas);
+        SceneManager.loadLobby(canvas);
     }
 
     public void characterSelectorButtonCallback()
@@ -32,5 +33,24 @@ public class MainMenuInput : MonoBehaviour
     public void inventoryCallback()
     {
         SceneManager.loadInventory(canvas);
+    }
+
+    public void createGameCallback()
+    {
+        RelayHelper.CreateRelay();
+    }
+
+    public void joinGameCallback()
+    {
+        TMPro.TMP_InputField inputField = FindObjectOfType<TMPro.TMP_InputField>();
+        string joinCode = inputField.text;
+        if (joinCode.Length != 6)
+        {
+            inputField.text = "Code is 6 characters";
+        }
+        else
+        {
+            RelayHelper.JoinRelay(inputField.text);
+        }
     }
 }

@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float power = 10f;
     public float maxDrag = 5f;
     public float minForce = 2f;
+    public float forceMultiplier = 3f;  //Used to make the guideline scale quicker
     private Rigidbody2D rb;
     private LineRenderer lr;
     private float capPosZ;
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touchPosition);
         draggingPos.z = capPosZ;
 
-        Vector3 force = dragStartPos - draggingPos;
+        Vector3 force = forceMultiplier * (dragStartPos - draggingPos);
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
         if (clampedForce.magnitude >= minForce) 
         {
@@ -70,11 +71,11 @@ public class PlayerMovement : MonoBehaviour
         lr.enabled = true;
 
         lr.positionCount = 2;
-        Vector3 newVector = Vector3.ClampMagnitude((dragStartPos - draggingPos), maxDrag);
+        Vector3 newVector = Vector3.ClampMagnitude(forceMultiplier * (dragStartPos - draggingPos), maxDrag);
         lr.SetPosition(1, (newVector * 0.33f) + movementStartPosition);
     }
 
-    public bool DragRelease(Vector3 touchPosition)
+    public Vector3 DragRelease(Vector3 touchPosition)
     {
         bool shot = false;
         lr.positionCount = 0;
@@ -82,19 +83,24 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touchPosition);
         dragReleasePos.z = capPosZ;
 
-        Vector3 force = dragStartPos - dragReleasePos;
+        Vector3 force = forceMultiplier * (dragStartPos - dragReleasePos);
         Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
 
-        if(clampedForce.magnitude >= minForce) {
-            rb.AddForce(clampedForce, ForceMode2D.Impulse);
-            playCapSound();
-            shot = true;
+        if(clampedForce.magnitude < minForce) {
+            clampedForce = Vector3.zero;
         }
         
         DragReset();
-        return shot;
+        return clampedForce;
     }
 
+    public void playShot(Vector3 force) {
+        if(force.magnitude >= minForce) {
+            rb.AddForce(force, ForceMode2D.Impulse);
+            playCapSound();
+        }
+    }
+ 
     public void DragReset() {
         dragStartPos = Vector3.zero;
         lr.enabled = false;

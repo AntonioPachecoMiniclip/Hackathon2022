@@ -8,10 +8,10 @@ public class SceneManager : MonoBehaviour
     private static GameObject canvasMainMenu;
     private static GameObject canvasSettings;
 
-    // Start is called before the first frame update
     void Awake() {
         DontDestroyOnLoad(this);
         loadMainMenu();
+        RelayHelper.Start();
         Debug.Log("SceneManager awake");
     }
 
@@ -62,6 +62,13 @@ public class SceneManager : MonoBehaviour
         SceneManager.canvasMainMenu = canvas;
         canvas.SetActive(false);
         UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelector", LoadSceneMode.Additive);
+    }
+
+    public static void loadLobby(GameObject canvas)
+    {
+        SceneManager.canvasMainMenu = canvas;
+        canvas.SetActive(false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
     }
 
     public static void loadInventory(GameObject canvas) {

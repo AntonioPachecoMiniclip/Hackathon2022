@@ -17,6 +17,8 @@ public class GameStateMachine : MonoBehaviour
     {
         gameStates.Add(new PreGameState());
         gameStates.Add(new PlayerTurnState());
+        gameStates.Add(new WaitForOtherPlayersState());
+        gameStates.Add(new PlayTurnsState());
         gameStates.Add(new TurnEndState());
         gameStates.Add(new GameFinishState());
 
