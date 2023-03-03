@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2836108172704565458}
   - component: {fileID: 6621381047739204937}
+  - component: {fileID: 8527368179295807098}
   m_Layer: 0
   m_Name: NetworkPlayer
   m_TagString: Untagged
@@ -48,3 +49,15 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &8527368179295807098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454312029803778228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f9722dbc7ae4b31964c067ec8589ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
