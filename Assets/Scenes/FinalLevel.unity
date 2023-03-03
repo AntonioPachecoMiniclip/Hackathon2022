@@ -1456,6 +1456,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6.6899996
       objectReference: {fileID: 0}
+    - target: {fileID: 1385398336191582861, guid: c79b1f31edba24d10907d1acc7b2d696,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1522153699721948741, guid: c79b1f31edba24d10907d1acc7b2d696,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1667,6 +1672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522135341513966147, guid: c79b1f31edba24d10907d1acc7b2d696,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7542291204224699838, guid: c79b1f31edba24d10907d1acc7b2d696,
         type: 3}
