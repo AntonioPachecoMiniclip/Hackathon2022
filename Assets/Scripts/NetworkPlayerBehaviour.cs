@@ -40,6 +40,8 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        DontDestroyOnLoad(this);
+
         shotInput.OnValueChanged += OnShotInputChanged;
     }
 
@@ -53,7 +55,7 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(OwnerClientId + " - my number" + characterIndex.Value);
+        //Debug.Log(OwnerClientId + " - my number" + characterIndex.Value);
 
         if (!IsOwner) {
             return;

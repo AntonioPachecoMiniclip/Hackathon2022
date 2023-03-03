@@ -34,7 +34,7 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
             networkPlayers.Add(networkPlayerBehaviour.OwnerClientId, networkPlayerBehaviour);
         }
 
-        if(networkPlayers.Count != players.Count)
+        if(networkPlayers.Count > players.Count)
         {
             Debug.LogError("Player Settings don't match number of player controllers");
             return;
