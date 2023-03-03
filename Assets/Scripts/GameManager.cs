@@ -43,9 +43,15 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
         int i = 0;
         foreach(NetworkPlayerBehaviour n in networkPlayers.Values)
         {
+            if (n.IsOwner) {
+                localPlayerIndex = i;
+            }
             players[i].SetupWithCharacterIndex(n.getCharacterIndex());
             players[i].SetNetworkPlayerId(n.OwnerClientId);
             i++;
+        }
+        for (; i < players.Count; i++) {
+            players.RemoveAt(i);
         }
 
         FinishedPlayers = new List<PlayerController>(players.Count);
