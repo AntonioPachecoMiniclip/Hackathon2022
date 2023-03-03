@@ -31,11 +31,4 @@ public class PlayerTurnState : GameState
         gameManager.Camera.SetTarget(localPlayer.gameObject);
         localPlayer.StartTurn(totalDuration);
     }
-
-    //private int GetNextPlayerIndex()
-    //{
-    //    GameManager gameManager = GameManager.Instance;
-    //    List<PlayerController> players = gameManager.players;
-    //    return ++gameManager.CurrentPlayerIndex % players.Count;
-    //}
 }
