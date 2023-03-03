@@ -19,5 +19,5 @@ MonoBehaviour:
   linearDrag: 4
   maxDrag: 5
   power: 18
-  capMaterial: {fileID: 2100000, guid: af7c62ba30d0a401cb0378ea4ed6867b, type: 2}
+  capMaterial: {fileID: 2100000, guid: 2bf7b5fd9cb064d27ba4be9ca3c89675, type: 2}
   capType: 1

@@ -62,12 +62,14 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
         else
         {
             Debug.Log("Fallback to offline players");
+            /*
             int j = 0;
             for(int i=0; i < players.Count; i++)
             {
                 players[i].SetupWithCharacterIndex(j++);
                 if (j > 2) j = 0;
             }
+            */
         }
 
         FinishedPlayers = new List<PlayerController>(players.Count);
