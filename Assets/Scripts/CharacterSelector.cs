@@ -71,14 +71,8 @@ public class CharacterSelector : MonoBehaviour
     public void characterRotateCallback()
     {
         // rotate the existing characters
-
         Debug.Log($"{this.name}");
-
         Debug.Log($"characterRotateCallback :: rotate the existing characters");
-        if (null != characters)
-        {
-            Debug.Log($"Number of characters: {numberOfElements}");
-        }
     }
 
     public void SnapToCharacter(int selectedCharacterIndex) {
@@ -126,14 +120,11 @@ public class CharacterSelector : MonoBehaviour
                 $"- Scale({newScale.x}, {newScale.y}, {newScale.z})\r\n" +
                 $"[{layerPosition}]";
 
-
-        string characterName = string.Empty;
         if (layerPosition.Equals(LayerPosition.Front) && finalAngle > (0.3 * Mathf.PI) && finalAngle < (0.7 * Mathf.PI))
         {
-            
-            characterName = character.name;
-            Debug.Log($"Eu acabei de descobrir [{characterName}]");
+            string characterName = character.name;
+            characterLabel.text = characterName;
         }
-        characterLabel.text = characterName;
+        
     } 
 }

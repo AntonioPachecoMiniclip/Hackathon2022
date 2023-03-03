@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerTimer = GetComponent<PlayerTimer>();
         outOfBoundsAnimation = GetComponentInChildren<OutOfBoundsAnimation>();
-        meshes[0] = Resources.Load<Mesh>("Bottom");
+        meshes[0] = Resources.Load<Mesh>("Cheetah");
         //meshes[1] = Resources.Load<Mesh>("Rhino");
         //meshes[2] = Resources.Load<Mesh>("Sheep");
     }
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         Mesh m = getMeshForIndex(index);
         foreach (MeshFilter meshFilter in transform.GetComponentsInChildren<MeshFilter>())
         {
-            //meshFilter.mesh = m;
+            meshFilter.mesh = m;
         }
     }
 
@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour
         ghost.SetActive(false);
         isReady = false;
         queuedShotInput = Vector3.zero;
-
-        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
+        if(networkPlayerId != 0)
+            GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
@@ -237,7 +237,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnShotInputGiven()
     {
-        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
+        if (networkPlayerId != 0)
+            GameManager.Instance.getNetworkPlayerForId(networkPlayerId).setShotInput(queuedShotInput);
         DisablePlayer();
         isReady = true;
         PlayerInputGiven.Invoke();
@@ -245,7 +246,6 @@ public class PlayerController : MonoBehaviour
 
     public void ReceivedShotInput(Vector3 shotInput)
     {
-        Debug.LogWarning("Shot received: " + shotInput);
         queuedShotInput = shotInput;
         isReady = true;
     }
@@ -259,8 +259,6 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.playShot(queuedShotInput);
         isMoving = true;
-        isReady = false;
-        queuedShotInput = Vector3.zero;
     }
 
     private void DisablePlayer()
