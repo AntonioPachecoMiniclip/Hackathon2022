@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Inventory.unity
     guid: c52077f0b4ff547beaedeb3c0c327035
   - enabled: 1
+    path: Assets/Scenes/CharacterSelector.unity
+    guid: 0e4e47a9926874d1e837a6614a98286a
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 22ef0437597294b4b8658944ad347373
   m_configObjects: {}

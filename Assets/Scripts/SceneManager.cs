@@ -57,6 +57,13 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("TierSelector", LoadSceneMode.Additive);
     }
 
+    public static void loadCharacterSelector(GameObject canvas)
+    {
+        SceneManager.canvasMainMenu = canvas;
+        canvas.SetActive(false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelector", LoadSceneMode.Additive);
+    }
+
     public static void loadLobby(GameObject canvas)
     {
         SceneManager.canvasMainMenu = canvas;

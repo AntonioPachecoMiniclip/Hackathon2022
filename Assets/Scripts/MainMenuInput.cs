@@ -14,7 +14,12 @@ public class MainMenuInput : MonoBehaviour
     {
         SceneManager.loadLobby(canvas);
     }
-    
+
+    public void characterSelectorButtonCallback()
+    {
+        SceneManager.loadCharacterSelector(canvas);
+    }
+
     public void settingsCallback()
     {
         SceneManager.loadSettings(canvas);
