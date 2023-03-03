@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Networking;
+using Unity.Netcode;
 
-public class NetworkPlayerBehaviour : MonoBehaviour
+public class NetworkPlayerBehaviour : NetworkBehaviour
 {
-    private NetworkVariable<int> myNumber = new NetworkVariable<int>(1);
+    private NetworkVariable<int> myNumber = new NetworkVariable<int>(1,NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class NetworkPlayerBehaviour : MonoBehaviour
             return;
         }
 
-        if (Input.GetDownKey(KeyCode.T)) {
+        if (Input.GetKeyDown(KeyCode.T)) {
             myNumber.Value = myNumber.Value + 1;
         }
 

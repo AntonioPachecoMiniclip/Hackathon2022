@@ -229,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnShotInputGiven()
     {
+        //TODO send shot to other players
         DisablePlayer();
         isReady = true;
         PlayerInputGiven.Invoke();
