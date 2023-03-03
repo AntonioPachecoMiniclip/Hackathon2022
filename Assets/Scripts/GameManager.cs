@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Unity.Netcode;
 public struct PlayerSettings
 {
     public PlayerSettings(int characterIndex)
@@ -29,30 +29,43 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
     private void Start()
     {
         networkPlayers = new Dictionary<ulong, NetworkPlayerBehaviour>();
-        foreach(NetworkPlayerBehaviour networkPlayerBehaviour in FindObjectsOfType<NetworkPlayerBehaviour>())
+        if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsListening)
         {
-            networkPlayers.Add(networkPlayerBehaviour.OwnerClientId, networkPlayerBehaviour);
-        }
-
-        if(networkPlayers.Count > players.Count)
-        {
-            Debug.LogError("Player Settings don't match number of player controllers");
-            return;
-        }
-
-        int i = 0;
-        foreach(NetworkPlayerBehaviour n in networkPlayers.Values)
-        {
-            if (n.IsOwner) {
-                localPlayerIndex = i;
+            foreach (NetworkPlayerBehaviour networkPlayerBehaviour in FindObjectsOfType<NetworkPlayerBehaviour>())
+            {
+                networkPlayers.Add(networkPlayerBehaviour.OwnerClientId, networkPlayerBehaviour);
             }
-            players[i].SetupWithCharacterIndex(n.getCharacterIndex());
-            players[i].SetNetworkPlayerId(n.OwnerClientId);
-            i++;
+
+            if (networkPlayers.Count > players.Count)
+            {
+                Debug.LogError("Player Settings don't match number of player controllers");
+                return;
+            }
+
+            int i = 0;
+            foreach (NetworkPlayerBehaviour n in networkPlayers.Values)
+            {
+                if (n.IsOwner)
+                {
+                    localPlayerIndex = i;
+                }
+                players[i].SetupWithCharacterIndex(n.getCharacterIndex());
+                players[i].SetNetworkPlayerId(n.OwnerClientId);
+                i++;
+            }
+            for (int j = players.Count - 1; j >= i; j--)
+            {
+                GameObject.Destroy(players[j].gameObject);
+                players.RemoveAt(j);
+            }
         }
-        for (int j = players.Count - 1; j >= i; j--) {
-            GameObject.Destroy(players[j].gameObject);
-            players.RemoveAt(j);
+        else
+        {
+            Debug.Log("Fallback to offline players");
+            for(int i=0; i < players.Count; i++)
+            {
+                players[i].SetupWithCharacterIndex(0);
+            }
         }
 
         FinishedPlayers = new List<PlayerController>(players.Count);
@@ -60,9 +73,9 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
 
     public void OnShotInputUpdated(Vector3 previousValue, Vector3 newValue, ulong networkPlayerId)
     {
-        foreach(PlayerController p in players)
+        foreach (PlayerController p in players)
         {
-            if(p.networkPlayerId == networkPlayerId)
+            if (p.networkPlayerId == networkPlayerId)
             {
                 p.ReceivedShotInput(newValue);
             }
@@ -140,7 +153,8 @@ public class GameManager : SceneBoundSingletonBehaviour<GameManager>
         }
     }
 
-    public bool AllPlayersReadyToShoot() {
+    public bool AllPlayersReadyToShoot()
+    {
         for (int i = 0; i < players.Count; i++)
         {
             if (!players[i].IsReadyToShoot() && !FinishedPlayers.Contains(players[i]))

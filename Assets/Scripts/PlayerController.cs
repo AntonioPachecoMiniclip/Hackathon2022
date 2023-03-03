@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         ghost.SetActive(false);
         isReady = false;
         queuedShotInput = Vector3.zero;
-        GameManager.Instance.getNetworkPlayerForId(networkPlayerId).resetShotInput();
+        GameManager.Instance?.getNetworkPlayerForId(networkPlayerId)?.resetShotInput();
         canMove = true;
         decal.SetActive(true);
         playerTimer.startTimer(duration);
